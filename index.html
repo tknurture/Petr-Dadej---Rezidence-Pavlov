@@ -100,7 +100,7 @@
         .hero-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(180deg,
-                rgba(27,42,74,0.55) 0%, rgba(27,42,74,0.45) 40%, rgba(27,42,74,0.7) 100%);
+                rgba(27,42,74,0.7) 0%, rgba(27,42,74,0.6) 40%, rgba(27,42,74,0.8) 100%);
         }
         .hero-content {
             position: relative; z-index: 2; text-align: center;
@@ -137,12 +137,44 @@
         .hero-scroll { opacity: 0; animation: fadeUp 1s ease 1.1s forwards; }
         .hero-scroll a {
             display: inline-flex; flex-direction: column; align-items: center;
-            gap: 12px; text-decoration: none; color: var(--gold);
+            gap: 0; text-decoration: none; color: var(--gold);
             font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+        }
+        .scroll-line-wrap {
+            position: relative; display: flex; align-items: center;
+            justify-content: center; min-height: 48px;
         }
         .scroll-line {
             width: 1px; height: 48px; background: var(--gold);
             animation: scrollPulse 2s ease-in-out infinite;
+            transition: height 0.4s ease, opacity 0.3s ease;
+        }
+        .scroll-line.hidden {
+            height: 0; opacity: 0;
+        }
+        .scroll-typed {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--gold); opacity: 0;
+            display: flex; align-items: center;
+            transition: opacity 0.3s ease;
+        }
+        .scroll-typed.active {
+            opacity: 1;
+        }
+        .scroll-typed-text {
+            display: inline;
+        }
+        .scroll-typed-cursor {
+            display: inline-block; width: 1px; height: 14px;
+            background: var(--gold); margin-left: 2px;
+            animation: cursorBlink 0.6s step-end infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         @keyframes scrollPulse {
             0%,100% { opacity: 0.3; transform: scaleY(0.6); }
@@ -398,6 +430,56 @@
             text-decoration: none; transition: color 0.3s ease;
         }
         .contact-detail a:hover { color: var(--gold); }
+
+        /* ── CONTACT FORM ── */
+        .contact-form { margin-top: 40px; }
+        .contact-form h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px; font-weight: 400; margin-bottom: 24px;
+            color: var(--royal-blue);
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group input,
+        .form-group textarea {
+            width: 100%; padding: 14px 16px;
+            border: 1px solid rgba(27,42,74,0.15);
+            background: var(--white); color: var(--royal-blue);
+            font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none; cursor: none;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa; font-weight: 300;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197,165,90,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            display: inline-block; padding: 14px 40px;
+            background: var(--gold); color: var(--white);
+            font-family: 'Inter', sans-serif; font-size: 12px;
+            font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+            border: 2px solid var(--gold); cursor: none;
+            transition: all 0.3s ease; margin-top: 8px;
+        }
+        .form-submit:hover {
+            background: transparent; color: var(--gold);
+        }
+        .form-submit:disabled {
+            opacity: 0.5; pointer-events: none;
+        }
+        .form-message {
+            margin-top: 16px; font-size: 14px; font-weight: 400;
+            display: none;
+        }
+        .form-message.success { display: block; color: #2e7d32; }
+        .form-message.error { display: block; color: #c62828; }
+
         .contact-photo { position: relative; text-align: center; }
         .contact-photo img {
             width: 320px; height: 420px; object-fit: cover; object-position: top;
@@ -556,6 +638,8 @@
                 top: 12px; transform: translateX(12px);
             }
             .contact-info .contact-name { font-size: 26px; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form { margin-top: 32px; }
 
             footer { padding: 36px 20px; }
             footer .footer-logo img { height: 32px; margin-bottom: 16px; }
@@ -658,9 +742,14 @@
             <p class="hero-sub2">Hektar vlastního světa</p>
             <div class="hero-divider"></div>
             <div class="hero-scroll">
-                <a href="#intro">
-                    <span>Příběh rezidence</span>
-                    <span class="scroll-line"></span>
+                <a href="#intro" id="scrollLink">
+                    <div class="scroll-line-wrap">
+                        <span class="scroll-line" id="scrollLine"></span>
+                        <div class="scroll-typed" id="scrollTyped">
+                            <span class="scroll-typed-text" id="scrollTypedText"></span>
+                            <span class="scroll-typed-cursor"></span>
+                        </div>
+                    </div>
                 </a>
             </div>
         </div>
@@ -955,6 +1044,28 @@
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
                     <a href="https://www.petrdadej.cz" target="_blank">www.petrdadej.cz</a>
                 </div>
+
+                <div class="contact-form">
+                    <h3>Nezávazná poptávka</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Jméno a příjmení" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Telefon">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Vaše zpráva..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="formSubmitBtn">Odeslat zprávu</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
             </div>
             <div class="contact-photo reveal">
                 <img src="zmenšená fotografieIMG_9507.jpg" alt="Petr Dadej">
@@ -1118,6 +1229,105 @@
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .tl-item').forEach(el => {
             observer.observe(el);
         });
+
+        // ── Typewriter loop ──
+        (function() {
+            const lineEl = document.getElementById('scrollLine');
+            const typedEl = document.getElementById('scrollTyped');
+            const textEl = document.getElementById('scrollTypedText');
+            const phrase = 'Chci vidět více';
+            const typeSpeed = 80;
+            const eraseSpeed = 50;
+            let i = 0;
+
+            function showTyped() {
+                // Hide line, show typed area
+                lineEl.classList.add('hidden');
+                setTimeout(() => {
+                    typedEl.classList.add('active');
+                    setTimeout(typeChar, 300);
+                }, 400);
+            }
+
+            function typeChar() {
+                if (i <= phrase.length) {
+                    textEl.textContent = phrase.slice(0, i);
+                    i++;
+                    setTimeout(typeChar, typeSpeed);
+                } else {
+                    // Pause then erase
+                    setTimeout(eraseChar, 1500);
+                }
+            }
+
+            function eraseChar() {
+                i--;
+                if (i >= 0) {
+                    textEl.textContent = phrase.slice(0, i);
+                    setTimeout(eraseChar, eraseSpeed);
+                } else {
+                    // Hide typed, show line again
+                    typedEl.classList.remove('active');
+                    setTimeout(() => {
+                        lineEl.classList.remove('hidden');
+                        i = 0;
+                        // Wait with line pulsing, then repeat
+                        setTimeout(showTyped, 2500);
+                    }, 300);
+                }
+            }
+
+            // Start after hero animations
+            setTimeout(showTyped, 3000);
+        })();
+
+        // ── Contact form webhook ──
+        (function() {
+            const WEBHOOK_URL = 'https://n8n.korysol.cz/webhook/52c43095-3921-49ef-81b4-6438254739c4';
+
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('formSubmitBtn');
+            const msg = document.getElementById('formMessage');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.textContent = 'Odesílám...';
+                msg.className = 'form-message';
+                msg.textContent = '';
+
+                const data = {
+                    name: form.name.value.trim(),
+                    email: form.email.value.trim(),
+                    phone: form.phone.value.trim(),
+                    message: form.message.value.trim(),
+                    source: 'Rezidence Pavlov - Landing Page',
+                    timestamp: new Date().toISOString()
+                };
+
+                try {
+                    const res = await fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (res.ok) {
+                        msg.className = 'form-message success';
+                        msg.textContent = 'Zpráva byla úspěšně odeslána. Ozveme se vám co nejdříve.';
+                        form.reset();
+                    } else {
+                        throw new Error('Server error');
+                    }
+                } catch (err) {
+                    msg.className = 'form-message error';
+                    msg.textContent = 'Odeslání se nezdařilo. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.';
+                }
+
+                btn.disabled = false;
+                btn.textContent = 'Odeslat zprávu';
+            });
+        })();
     </script>
 
 </body>
