@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rezidence-pavlov.vercel.app'),
   title: 'Rezidence Pavlov 163 | Petr Dadej',
   description: 'Výjimečná rezidence nad Mohelnicí s výhledem na Bouzov a Praděd. 10 000 m² pozemku, absolutní soukromí. Hektar vlastního světa.',
   openGraph: {
