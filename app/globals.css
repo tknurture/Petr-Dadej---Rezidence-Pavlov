@@ -20,8 +20,15 @@ body {
 a, button, input, textarea, select, [role="button"] { cursor: none; }
 body.menu-open { overflow: hidden; position: fixed; width: 100%; }
 
+/* ── TOP BAR ── */
+.top-bar { position: fixed; top: 0; left: 0; width: 100%; z-index: 110; background: var(--royal-blue); padding: 10px 24px; text-align: center; font-size: 13px; font-weight: 400; letter-spacing: 1px; color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(197,165,90,0.2); }
+.top-bar strong { color: var(--gold); font-weight: 500; }
+.top-bar a { color: var(--gold); text-decoration: none; font-weight: 500; margin-left: 12px; transition: color 0.3s ease; }
+.top-bar a:hover { color: var(--gold-light); }
+.top-bar .top-bar-sep { display: inline-block; width: 1px; height: 12px; background: rgba(197,165,90,0.3); margin: 0 14px; vertical-align: middle; }
+
 /* ── HEADER ── */
-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }
+header { position: fixed; top: 38px; left: 0; width: 100%; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }
 header.scrolled { background: rgba(255,255,255,0.97); padding: 16px 48px; box-shadow: 0 1px 20px rgba(27,42,74,0.06); backdrop-filter: blur(12px); }
 .logo img { height: 52px; transition: height 0.4s ease; }
 header.scrolled .logo img { height: 40px; }
@@ -204,7 +211,10 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
 }
 
 @media (max-width: 768px) {
-  header { padding: 16px 20px; }
+  .top-bar { font-size: 11px; padding: 8px 16px; letter-spacing: 0.5px; }
+  .top-bar .top-bar-sep { margin: 0 8px; }
+  .top-bar .top-bar-hide-mobile { display: none; }
+  header { top: 34px; padding: 16px 20px; }
   header.scrolled { padding: 12px 20px; }
   .logo img { height: 40px; }
   header.scrolled .logo img { height: 34px; }

@@ -282,6 +282,15 @@ export default function Home() {
 
   return (
     <>
+      {/* TOP BAR */}
+      <div className="top-bar">
+        <strong>Duben 2026</strong>
+        <span className="top-bar-sep"></span>
+        Přijímáme pouze <strong>2 nové klienty</strong>
+        <span className="top-bar-hide-mobile"> — kapacita je omezená, aby každý projekt dostal 100% pozornosti</span>
+        <a href="#contact">Zjistit více &rarr;</a>
+      </div>
+
       {/* HEADER */}
       <header id="header" ref={headerRef}>
         <div className="logo">
