@@ -282,15 +282,6 @@ export default function Home() {
 
   return (
     <>
-      {/* TOP BAR */}
-      <div className="top-bar">
-        <strong>Duben 2026</strong>
-        <span className="top-bar-sep"></span>
-        Přijímáme pouze <strong>2 nové klienty</strong>
-        <span className="top-bar-hide-mobile"> — kapacita je omezená, aby každý projekt dostal 100% pozornosti</span>
-        <a href="#contact">Zjistit více &rarr;</a>
-      </div>
-
       {/* HEADER */}
       <header id="header" ref={headerRef}>
         <div className="logo">
@@ -397,7 +388,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-right">
-              <img src="/images/zasilka/DJI_20260305151850_0030_D-HDR.jpg" alt="Lokace - výhled nad Mohelnicí" loading="lazy" />
+              <img src="/images/zasilka/DJI_20260305151850_0030_D-HDR.webp" alt="Lokace - výhled nad Mohelnicí" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
@@ -416,8 +407,8 @@ export default function Home() {
             </div>
             <div className="tl-image reveal-left">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6929-HDR.jpg" alt="Rekonstrukce - vstupní hala" loading="lazy" />
-                <img src="/images/zasilka/PS1A6834-HDR.jpg" alt="Rekonstrukce - patinované dveře" loading="lazy" />
+                <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Rekonstrukce - vstupní hala" loading="lazy" />
+                <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Rekonstrukce - patinované dveře" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
@@ -437,8 +428,8 @@ export default function Home() {
             </div>
             <div className="tl-image reveal-right">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6939-HDR.jpg" alt="Kuchyně - celkový pohled" loading="lazy" />
-                <img src="/images/zasilka/PS1A6959-HDR.jpg" alt="Kuchyně - detail" loading="lazy" />
+                <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kuchyně - celkový pohled" loading="lazy" />
+                <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kuchyně - detail" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
@@ -457,7 +448,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/PS1A6989-HDR.jpg" alt="Obývací prostor" loading="lazy" />
+              <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací prostor" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
@@ -476,8 +467,8 @@ export default function Home() {
             </div>
             <div className="tl-image reveal-right">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6746-HDR.jpg" alt="Hlavní ložnice" loading="lazy" />
-                <img src="/images/zasilka/PS1A6756-HDR.jpg" alt="Ložnice - nástěnná malba" loading="lazy" />
+                <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Hlavní ložnice" loading="lazy" />
+                <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - nástěnná malba" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
@@ -496,7 +487,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.jpg" alt="Rezidence dnes - jarní pohled" loading="lazy" />
+              <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Rezidence dnes - jarní pohled" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
@@ -505,7 +496,7 @@ export default function Home() {
 
       {/* IMAGE BREAK */}
       <div className="image-break">
-        <img src="/images/DJI_20260219124457_0037_D-HDR.jpg" alt="Rezidence Pavlov - zimní panorama" loading="lazy" />
+        <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Rezidence Pavlov - zimní panorama" loading="lazy" />
         <div className="image-break-overlay">
           <div className="image-break-text reveal">
             <p>Rezidence ve čtyřech ročních obdobích</p>
@@ -524,19 +515,19 @@ export default function Home() {
 
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6999-HDR.jpg" alt="Obývací prostor s kuchyní" loading="lazy" />
+            <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací prostor s kuchyní" loading="lazy" />
             <div className="room-label-text">
               <p>Otevřený koncept</p>
               <h3>Obývací prostor s kuchyní</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6944-HDR.jpg" alt="Kuchyně - modré skříňky" loading="lazy" />
+          <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně - modré skříňky" loading="lazy" />
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6701-HDR.jpg" alt="Koupelna" loading="lazy" />
+          <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6909-HDR.jpg" alt="Chodba" loading="lazy" />
+            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba" loading="lazy" />
             <div className="room-label-text">
               <p>Každý detail s péčí</p>
               <h3>Chodby a vstupy</h3>
@@ -546,19 +537,19 @@ export default function Home() {
 
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6849-HDR.jpg" alt="Modrá ložnice" loading="lazy" />
+            <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Modrá ložnice" loading="lazy" />
             <div className="room-label-text">
               <p>Klid a soukromí</p>
               <h3>Ložnice</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6864-HDR.jpg" alt="Ložnice detail" loading="lazy" />
+          <img src="/images/zasilka/PS1A6864-HDR.webp" alt="Ložnice detail" loading="lazy" />
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6780-HDR.jpg" alt="Pracovna" loading="lazy" />
+          <img src="/images/zasilka/PS1A6780-HDR.webp" alt="Pracovna" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6984-HDR.jpg" alt="Obývací pokoj" loading="lazy" />
+            <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Obývací pokoj" loading="lazy" />
             <div className="room-label-text">
               <p>Prostor pro inspiraci</p>
               <h3>Pracovna a obývací pokoj</h3>
@@ -575,11 +566,11 @@ export default function Home() {
           <div className="gold-line"></div>
         </div>
         <div className="exterior-grid reveal">
-          <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.jpg" alt="Jarní panorama" loading="lazy" />
-          <img src="/images/DJI_20260219124532_0040_D-HDR.jpg" alt="Zimní pohled" loading="lazy" />
-          <img src="/images/DJI_20260219124342_0030_D-HDR.jpg" alt="Pozemek v zimě" loading="lazy" />
-          <img src="/images/DJI_20260219124424_0034_D-HDR.jpg" alt="Panoramatický výhled" loading="lazy" />
-          <img className="wide" src="/images/zasilka/DJI_20260305151440_0017_D-HDR.jpg" alt="Západ slunce nad rezidencí" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp" alt="Jarní panorama" loading="lazy" />
+          <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Zimní pohled" loading="lazy" />
+          <img src="/images/DJI_20260219124342_0030_D-HDR.webp" alt="Pozemek v zimě" loading="lazy" />
+          <img src="/images/DJI_20260219124424_0034_D-HDR.webp" alt="Panoramatický výhled" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Západ slunce nad rezidencí" loading="lazy" />
         </div>
       </section>
 
@@ -651,7 +642,7 @@ export default function Home() {
             </div>
           </div>
           <div className="contact-photo reveal">
-            <img src="/images/petr-dadej.jpg" alt="Petr Dadej" loading="lazy" />
+            <img src="/images/petr-dadej.webp" alt="Petr Dadej" loading="lazy" />
           </div>
         </div>
       </section>
