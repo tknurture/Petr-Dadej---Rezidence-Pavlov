@@ -285,7 +285,9 @@ export default function Home() {
       {/* HEADER */}
       <header id="header" ref={headerRef}>
         <div className="logo">
-          <img src="/images/ANAGRAM_PD_barva_final.png" alt="Petr Dadej" />
+          <a href="#">
+            <img src="/images/ANAGRAM_PD_barva_final.png" alt="Petr Dadej" />
+          </a>
         </div>
         <button className="menu-toggle" ref={menuToggleRef} aria-label="Menu">
           <span></span><span></span><span></span>
