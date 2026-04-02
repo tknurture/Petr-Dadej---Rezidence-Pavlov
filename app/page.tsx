@@ -517,19 +517,19 @@ export default function Home() {
 
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací prostor s kuchyní" loading="lazy" />
+            <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kuchyně s ostrovem" loading="lazy" />
             <div className="room-label-text">
-              <p>Otevřený koncept</p>
-              <h3>Obývací prostor s kuchyní</h3>
+              <p>Srdce domova</p>
+              <h3>Kuchyně</h3>
             </div>
           </div>
           <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně - modré skříňky" loading="lazy" />
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
+          <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací prostor s výhledem do zahrady" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba" loading="lazy" />
+            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba se zelenými dveřmi" loading="lazy" />
             <div className="room-label-text">
               <p>Každý detail s péčí</p>
               <h3>Chodby a vstupy</h3>
@@ -539,22 +539,22 @@ export default function Home() {
 
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Modrá ložnice" loading="lazy" />
+            <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" />
             <div className="room-label-text">
               <p>Klid a soukromí</p>
-              <h3>Ložnice</h3>
+              <h3>Ložnice s příběhem</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6864-HDR.webp" alt="Ložnice detail" loading="lazy" />
+          <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Modrá ložnice" loading="lazy" />
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6780-HDR.webp" alt="Pracovna" loading="lazy" />
+          <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Obývací pokoj" loading="lazy" />
+            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
             <div className="room-label-text">
-              <p>Prostor pro inspiraci</p>
-              <h3>Pracovna a obývací pokoj</h3>
+              <p>Autorský design</p>
+              <h3>Koupelna</h3>
             </div>
           </div>
         </div>
@@ -569,10 +569,12 @@ export default function Home() {
         </div>
         <div className="exterior-grid reveal">
           <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp" alt="Jarní panorama" loading="lazy" />
-          <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Zimní pohled" loading="lazy" />
+          <img src="/images/DJI_20260219124228_0023_D-HDR.webp" alt="Rezidence v zimě - ptačí pohled" loading="lazy" />
           <img src="/images/DJI_20260219124342_0030_D-HDR.webp" alt="Pozemek v zimě" loading="lazy" />
+          <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Příjezdová cesta" loading="lazy" />
           <img src="/images/DJI_20260219124424_0034_D-HDR.webp" alt="Panoramatický výhled" loading="lazy" />
-          <img className="wide" src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Západ slunce nad rezidencí" loading="lazy" />
+          <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Jarní západ slunce" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151850_0030_D-HDR.webp" alt="Rezidence v krajině" loading="lazy" />
         </div>
       </section>
 
