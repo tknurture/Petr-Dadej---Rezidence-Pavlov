@@ -86,9 +86,14 @@ export default function Home() {
         charIdx++;
         setTimeout(typeChar, typeSpeed);
       } else {
+        const cursor = typedEl?.querySelector('.scroll-typed-cursor') as HTMLElement | null;
+        if (cursor) cursor.style.opacity = '0';
         setTimeout(() => {
           typedEl?.classList.add('done');
-        }, 200);
+          typedEl?.addEventListener('animationend', () => {
+            typedEl?.classList.add('settled');
+          }, { once: true });
+        }, 350);
       }
     }
 
