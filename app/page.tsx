@@ -86,23 +86,9 @@ export default function Home() {
         charIdx++;
         setTimeout(typeChar, typeSpeed);
       } else {
-        setTimeout(eraseChar, 1500);
-      }
-    }
-
-    function eraseChar() {
-      if (!typewriterActive) return;
-      charIdx--;
-      if (charIdx >= 0) {
-        if (textEl) textEl.textContent = phrase.slice(0, charIdx);
-        setTimeout(eraseChar, eraseSpeed);
-      } else {
-        typedEl?.classList.remove('active');
         setTimeout(() => {
-          lineEl?.classList.remove('hidden');
-          charIdx = 0;
-          setTimeout(showTyped, 2500);
-        }, 300);
+          typedEl?.classList.add('done');
+        }, 200);
       }
     }
 
