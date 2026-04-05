@@ -518,7 +518,7 @@ export default function Home() {
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Patinované dveře a průhled do chodby" loading="lazy" />
+          <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" />
           <div className="room-label">
             <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba se zelenými dveřmi" loading="lazy" />
             <div className="room-label-text">
@@ -542,7 +542,7 @@ export default function Home() {
         <div className="room-row reverse reveal">
           <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" />
+            <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Průhled do koupelny" loading="lazy" />
             <div className="room-label-text">
               <p>Autorský design</p>
               <h3>Koupelna</h3>
