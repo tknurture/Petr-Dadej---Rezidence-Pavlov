@@ -542,7 +542,7 @@ export default function Home() {
         <div className="room-row reverse reveal">
           <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Průhled do koupelny" loading="lazy" />
+            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
             <div className="room-label-text">
               <p>Autorský design</p>
               <h3>Koupelna</h3>
