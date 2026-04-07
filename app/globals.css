@@ -206,6 +206,7 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .room-row img { min-height: 280px; }
   .exterior-grid img { height: 240px; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .contact-info .gold-line { margin-left: auto; margin-right: auto; }
   .contact-photo { order: -1; }
   .contact-detail { justify-content: center; }
   .lifestyle { padding: 100px 32px; }
