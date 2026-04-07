@@ -293,7 +293,17 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg"></div>
+        <video
+          className="hero-bg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp"
+        >
+          <source src="/videos/hero.webm" type="video/webm" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <p className="hero-label">Pavlov 163</p>
