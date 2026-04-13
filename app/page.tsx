@@ -20,7 +20,7 @@ export default function Home() {
     const onScroll = () => {
       header?.classList.toggle('scrolled', window.scrollY > 80);
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // ── Mobile menu ──
     let scrollPos = 0;
@@ -120,8 +120,9 @@ export default function Home() {
 
       const onTouch = () => {
         isTouchDevice = true;
+        cancelAnimationFrame(animFrame);
       };
-      window.addEventListener('touchstart', onTouch, { once: true });
+      window.addEventListener('touchstart', onTouch, { once: true, passive: true });
 
       const onMouseMove = (e: MouseEvent) => {
         mouseX = e.clientX;
@@ -139,10 +140,7 @@ export default function Home() {
       window.addEventListener('mousemove', onMouseMove);
 
       function draw() {
-        if (isTouchDevice) {
-          animFrame = requestAnimationFrame(draw);
-          return;
-        }
+        if (isTouchDevice) return;
         ctx.clearRect(0, 0, w, h);
 
         for (let i = trail.length - 1; i >= 0; i--) {
