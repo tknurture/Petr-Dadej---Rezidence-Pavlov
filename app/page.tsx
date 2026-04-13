@@ -714,6 +714,7 @@ export default function Home() {
               <img src="/images/zasilka/PS1A6731-HDR.webp" alt="Chodba - druhý pohled" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6736-HDR.webp" alt="Chodba - třetí pohled" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6829-HDR.webp" alt="Chodba - průchod" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Chodba - modré dveře" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6924-HDR.webp" alt="Chodba - detail" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6934-HDR.webp" alt="Chodba - vstup" loading="lazy" decoding="async" />
             </div>
