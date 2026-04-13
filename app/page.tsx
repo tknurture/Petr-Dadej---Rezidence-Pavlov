@@ -86,6 +86,89 @@ export default function Home() {
     dlClose?.addEventListener('click', closeDl);
     dlOverlay?.addEventListener('click', closeDl);
 
+    // ── Download gate ──
+    const gateOverlay = document.getElementById('dlGateOverlay');
+    const gateForm = document.getElementById('dlGateForm') as HTMLFormElement | null;
+    const gateEmailInput = document.getElementById('dlGateEmail') as HTMLInputElement | null;
+    const gateBtn = document.getElementById('dlGateBtn') as HTMLButtonElement | null;
+    const gateMsg = document.getElementById('dlGateMsg');
+    const gateClose = document.getElementById('dlGateClose');
+    let pendingHref: string | null = null;
+
+    function openGate(href: string) {
+      pendingHref = href;
+      gateOverlay?.classList.add('open');
+      setTimeout(() => gateEmailInput?.focus(), 100);
+    }
+    function closeGate() {
+      gateOverlay?.classList.remove('open');
+      pendingHref = null;
+      if (gateMsg) { gateMsg.className = 'form-message'; gateMsg.textContent = ''; }
+      if (gateEmailInput) gateEmailInput.value = '';
+    }
+    function triggerDownload(href: string) {
+      const a = document.createElement('a');
+      a.href = href;
+      a.download = '';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document.querySelectorAll<HTMLAnchorElement>('.dl-list a, .dl-zip-btn').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href') || '';
+        if (sessionStorage.getItem('dlEmailSubmitted')) {
+          triggerDownload(href);
+          return;
+        }
+        openGate(href);
+      });
+    });
+
+    gateClose?.addEventListener('click', closeGate);
+    gateOverlay?.addEventListener('click', (e) => {
+      if (e.target === gateOverlay) closeGate();
+    });
+
+    gateForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = gateEmailInput?.value.trim();
+      if (!email || !gateBtn || !gateMsg) return;
+
+      gateBtn.disabled = true;
+      gateBtn.textContent = 'Odesílám...';
+      gateMsg.className = 'form-message';
+      gateMsg.textContent = '';
+
+      try {
+        const res = await fetch('https://n8n.korysol.cz/webhook/52c43095-3921-49ef-81b4-6438254739c4', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            source: 'Rezidence Pavlov - Stažení dokumentů',
+            timestamp: new Date().toISOString(),
+          }),
+        });
+        if (res.ok) {
+          sessionStorage.setItem('dlEmailSubmitted', '1');
+          const href = pendingHref;
+          closeGate();
+          if (href) triggerDownload(href);
+        } else {
+          throw new Error();
+        }
+      } catch {
+        gateMsg.className = 'form-message error';
+        gateMsg.textContent = 'Nepodařilo se odeslat. Zkuste to prosím znovu.';
+      } finally {
+        gateBtn.disabled = false;
+        gateBtn.textContent = 'Stáhnout';
+      }
+    });
+
     // ── Room scroll galleries ──
     document.querySelectorAll<HTMLElement>('.room-scroll').forEach((container) => {
       const track = container.querySelector<HTMLElement>('.room-scroll-track');
@@ -864,6 +947,24 @@ export default function Home() {
         <a href="/documents/rezidence-pavlov-dokumenty.zip" download className="dl-zip-btn">
           Stáhnout vše (ZIP)
         </a>
+      </div>
+
+      {/* DOWNLOAD GATE MODAL */}
+      <div id="dlGateOverlay" className="dl-gate-overlay">
+        <div id="dlGateModal" className="dl-gate-modal">
+          <button id="dlGateClose" className="dl-close" aria-label="Zavřít">×</button>
+          <p className="section-label">Dokumenty ke stažení</p>
+          <h3 className="dl-panel-title">Zadejte e-mail</h3>
+          <div className="gold-line"></div>
+          <p>Pošleme vám potvrzení a budeme vás informovat o&nbsp;aktualizacích dokumentace.</p>
+          <form id="dlGateForm">
+            <div className="form-group">
+              <input id="dlGateEmail" type="email" placeholder="Váš e-mail" required />
+            </div>
+            <button id="dlGateBtn" type="submit" className="form-submit">Stáhnout</button>
+            <div id="dlGateMsg" className="form-message"></div>
+          </form>
+        </div>
       </div>
 
       {/* CURSOR TRAIL */}
