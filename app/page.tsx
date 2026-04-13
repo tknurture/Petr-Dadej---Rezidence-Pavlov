@@ -410,8 +410,8 @@ export default function Home() {
             </div>
             <div className="tl-image reveal-left">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Rekonstrukce - vstupní hala" loading="lazy" />
-                <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Rekonstrukce - patinované dveře" loading="lazy" />
+                <img src="/images/kuchyne-pred-rekonstrukci.webp" alt="Kuchyně před rekonstrukcí" loading="lazy" />
+                <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně po rekonstrukci" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
