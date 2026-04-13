@@ -299,6 +299,7 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="auto"
           poster="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp"
         >
           <source src="/videos/hero.webm" type="video/webm" />
@@ -308,7 +309,7 @@ export default function Home() {
         <div className="hero-content">
           <p className="hero-label">Pavlov 163</p>
           <h1 className="hero-title">Rezidence<br />Pavlov</h1>
-          <p className="hero-subtitle">S výhledem na Mohelnici</p>
+          <p className="hero-subtitle">S výhledem, co se neokouká</p>
           <p className="hero-sub2">Hektar vlastního světa</p>
           <div className="hero-divider"></div>
           <div className="hero-scroll">
@@ -332,16 +333,16 @@ export default function Home() {
           <h2 className="section-title">Každý výjimečný dům<br />má svůj příběh</h2>
           <div className="gold-line"></div>
           <p>
-            Rezidence Pavlov není běžný rodinný dům. Je to místo s duší,
-            které prošlo pečlivou rekonstrukcí a proměnilo se v rezidenci
-            nad Mohelnicí s výhledem na Bouzov a&nbsp;Praděd.
+            Rezidence Pavlov není běžný rodinný dům. Je to místo s&nbsp;duší,
+            které prošlo pečlivou rekonstrukcí a&nbsp;proměnilo se v&nbsp;rezidenci
+            nad Mohelnicí s&nbsp;výhledem na Bouzov a&nbsp;Praděd.
           </p>
           <div className="highlight-quote">
-            {'\u201ENezáleží jen na tom, kolik stojí,'}<br />{'\u00A0ale jakou hodnotu nabízí.\u201C'}
+            {'\u201EDomov si nevybíráte rozumem, ale pocitem.'}<br />{'\u00A0Ten správný poznáte hned.\u201C'}
           </div>
           <p>
             Od prvních vizí přes měsíce rekonstrukce až po finální podobu
-            — každý detail nese otisk péče a lásky k tomuto místu.
+            — každý detail nese otisk péče a&nbsp;lásky k&nbsp;tomuto místu.
             Pojďte nahlédnout do příběhu, který čeká na další kapitolu.
           </p>
         </div>
@@ -351,7 +352,7 @@ export default function Home() {
       <section className="stats">
         <div className="stats-grid reveal">
           <div className="stat-item">
-            <div className="stat-number">10 000</div>
+            <div className="stat-number">10 670</div>
             <div className="stat-label">m² pozemku</div>
           </div>
           <div className="stat-item">
@@ -385,8 +386,8 @@ export default function Home() {
               <h3 className="tl-title">Vize a místo</h3>
               <p className="tl-desc">
                 Všechno začalo nalezením výjimečné lokace — kopec nad Mohelnicí
-                s panoramatickým výhledem na Bouzov a Praděd. Místo,
-                kde se rodí klid a absolutní soukromí. Hektar vlastního světa
+                s&nbsp;panoramatickým výhledem na Bouzov a&nbsp;Praděd. Místo,
+                kde se rodí klid a&nbsp;absolutní soukromí. Hektar vlastního světa
                 čekající na svůj příběh.
               </p>
             </div>
@@ -402,9 +403,9 @@ export default function Home() {
               <p className="tl-year">Kapitola II</p>
               <h3 className="tl-title">Rekonstrukce s duší</h3>
               <p className="tl-desc">
-                Kompletní rekonstrukce proměnila dům v rezidenci s jedinečným
+                Kompletní rekonstrukce proměnila dům v&nbsp;rezidenci s&nbsp;jedinečným
                 charakterem. Ruční zpracování detailů, patinované dveře,
-                autorské povrchy stěn a pečlivě zvolené materiály.
+                autorské povrchy stěn a&nbsp;pečlivě zvolené materiály.
                 Každá místnost dostala vlastní identitu.
               </p>
             </div>
@@ -423,10 +424,10 @@ export default function Home() {
               <p className="tl-year">Kapitola III</p>
               <h3 className="tl-title">Srdce domova</h3>
               <p className="tl-desc">
-                Kuchyně s ručně barvenými modrými skříňkami, žulovým
-                pultem a industriálním osvětlením se stala srdcem celého domu.
-                Otevřený prostor propojený s obývací částí vytváří
-                velkorysý společenský prostor pro rodinu i přátele.
+                Kuchyně s&nbsp;ručně barvenými modrými skříňkami, žulovým
+                pultem a&nbsp;industriálním osvětlením se stala srdcem celého domu.
+                Otevřený prostor propojený s&nbsp;obývací částí vytváří
+                velkorysý společenský prostor pro rodinu i&nbsp;přátele.
               </p>
             </div>
             <div className="tl-image reveal-right">
@@ -444,10 +445,11 @@ export default function Home() {
               <p className="tl-year">Kapitola IV</p>
               <h3 className="tl-title">Prostor pro život</h3>
               <p className="tl-desc">
-                Velkorysý obývací prostor s přímým výstupem na zahradu
-                a velkoformátovými okny, jimiž proudí přirozené světlo.
-                Otevřený koncept propojuje kuchyni, jídelnu i obývací
-                část v jeden harmonický celek.
+                Obývací část s přímým vstupem na zahradu
+                a&nbsp;velkoformátovými okny je zaplavená denním světlem.
+                Celek plynule propojuje kuchyni, jídelnu
+                i&nbsp;relaxační zónu do harmonického
+                a&nbsp;funkčního uspořádání.
               </p>
             </div>
             <div className="tl-image reveal-left">
@@ -462,10 +464,12 @@ export default function Home() {
               <p className="tl-year">Kapitola V</p>
               <h3 className="tl-title">Soukromý svět</h3>
               <p className="tl-desc">
-                Ložnice s dekorativní kamennou stěnou a autorskou nástěnnou
-                malbou inspirovanou Středomořím. Každý pokoj je originál
-                — místo, kde se prolíná útulnost s uměním a kde
-                se ráno probouzíte s výhledem do zeleně.
+                Ložnice s dekorativní kamennou stěnou a&nbsp;tapetou
+                inspirovanou francouzským Provence. Dřevěné dveře
+                sladěné s&nbsp;tapetou — s&nbsp;vynýtovanými šrouby
+                — dotváří jedinečný charakter prostoru.
+                Každý pokoj je originál, kde se prolíná útulnost
+                s&nbsp;uměním.
               </p>
             </div>
             <div className="tl-image reveal-right">
@@ -484,8 +488,8 @@ export default function Home() {
               <h3 className="tl-title">Rezidence dnes</h3>
               <p className="tl-desc">
                 Dnes je Rezidence Pavlov kompletní — hotové dílo,
-                které čeká na svého nového majitele. Místo s charakterem,
-                výhledy a příběhem, který si zaslouží pokračování.
+                které čeká na svého nového majitele. Místo s&nbsp;charakterem,
+                výhledy a&nbsp;příběhem, který si zaslouží pokračování.
                 Rezidence, která se stane vaším domovem.
               </p>
             </div>
