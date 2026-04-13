@@ -528,36 +528,69 @@ export default function Home() {
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" />
+          <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací pokoj s kuchyní - open space" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba se zelenými dveřmi" loading="lazy" />
+            <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací pokoj - sedačka a výhled na zahradu" loading="lazy" />
             <div className="room-label-text">
-              <p>Každý detail s péčí</p>
-              <h3>Chodby a vstupy</h3>
+              <p>Prostor pro život</p>
+              <h3>Obývací pokoj</h3>
             </div>
           </div>
         </div>
 
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" />
+            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba se zelenými dveřmi" loading="lazy" />
             <div className="room-label-text">
-              <p>Klid a soukromí</p>
-              <h3>Ložnice s příběhem</h3>
+              <p>Každý detail s&nbsp;péčí</p>
+              <h3>Chodby a&nbsp;vstupy</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Modrá ložnice" loading="lazy" />
+          <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" />
         </div>
 
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
+          <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Ložnice - modrý pruh" loading="lazy" />
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Koupelna - sprchový kout a umyvadla" loading="lazy" />
+            <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" />
+            <div className="room-label-text">
+              <p>Klid a&nbsp;soukromí</p>
+              <h3>Ložnice s&nbsp;příběhem</h3>
+            </div>
+          </div>
+        </div>
+
+        <div className="room-row reveal">
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" />
             <div className="room-label-text">
               <p>Autorský design</p>
               <h3>Koupelna</h3>
             </div>
           </div>
+          <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Koupelna - sprchový kout a umyvadla" loading="lazy" />
+        </div>
+
+        <div className="room-row reverse reveal">
+          <img src="/images/zasilka/PS1A6808-HDR.webp" alt="Hostinská koupelna" loading="lazy" />
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6864-HDR.webp" alt="Hostinský pokoj" loading="lazy" />
+            <div className="room-label-text">
+              <p>Pro vzácné hosty</p>
+              <h3>Hostinský pokoj</h3>
+            </div>
+          </div>
+        </div>
+
+        <div className="room-row reveal">
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Prádelna s pračkou a sušičkou" loading="lazy" />
+            <div className="room-label-text">
+              <p>Zázemí v&nbsp;pořádku</p>
+              <h3>Technické zázemí</h3>
+            </div>
+          </div>
+          <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Kotelna - tepelné čerpadlo" loading="lazy" />
         </div>
       </section>
 
