@@ -92,7 +92,7 @@ section { padding: 120px 48px; }
 .stat-item { padding: 32px 16px; border-right: 1px solid rgba(197,165,90,0.2); }
 .stat-item:last-child { border-right: none; }
 .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--gold); margin-bottom: 12px; }
-.stat-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.stat-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); word-break: break-word; }
 
 /* ── TIMELINE ── */
 .timeline-section { background: var(--off-white); padding: 120px 48px; }
@@ -236,11 +236,12 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .gold-line { width: 36px; margin-bottom: 28px; }
   .intro p { font-size: 15px; line-height: 1.8; }
   .intro .highlight-quote { font-size: 21px; margin: 32px auto; padding: 24px 0; }
-  .stats { padding: 48px 20px; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .stat-item { padding: 24px 12px; border-right: none; }
-  .stat-number { font-size: 32px; margin-bottom: 8px; }
-  .stat-label { font-size: 10px; letter-spacing: 2px; }
+  .stats { padding: 40px 12px; }
+  .stats-grid { grid-template-columns: repeat(3,1fr); gap: 0; }
+  .stat-item { padding: 20px 8px; border-right: 1px solid rgba(197,165,90,0.2); }
+  .stat-item:last-child { border-right: none; }
+  .stat-number { font-size: 28px; margin-bottom: 6px; }
+  .stat-label { font-size: 9px; letter-spacing: 1px; }
   .timeline-section { padding: 56px 20px; }
   .timeline-header { margin-bottom: 48px; }
   .timeline::before { left: 20px; }
@@ -285,9 +286,9 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .section-title { font-size: clamp(22px,7vw,32px); }
   .intro p { font-size: 14px; }
   .intro .highlight-quote { font-size: 18px; }
-  .stats { padding: 40px 16px; }
-  .stat-number { font-size: 28px; }
-  .stat-label { font-size: 9px; letter-spacing: 1.5px; }
+  .stats { padding: 32px 8px; }
+  .stat-number { font-size: 22px; }
+  .stat-label { font-size: 8px; letter-spacing: 0.5px; }
   .timeline-section { padding: 48px 16px; }
   .tl-item { padding-left: 44px; margin-bottom: 48px; }
   .timeline::before { left: 16px; }
@@ -310,8 +311,8 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .hero-label { font-size: 9px; letter-spacing: 3px; }
   .hero-subtitle { font-size: 10px; letter-spacing: 1.5px; }
   .section-title { font-size: 22px; }
-  .stat-number { font-size: 24px; }
-  .stat-item { padding: 20px 8px; }
+  .stat-number { font-size: 19px; }
+  .stat-item { padding: 16px 4px; }
   .tl-title { font-size: 20px; }
   .tl-image img { height: 160px; }
   .tl-image-grid img { height: 100px; }
