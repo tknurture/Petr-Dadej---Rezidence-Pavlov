@@ -658,7 +658,7 @@ export default function Home() {
           <div className="gold-line"></div>
         </div>
 
-        {/* Kuchyně — 3 fotky v scroll galerii */}
+        {/* Kuchyně */}
         <div className="room-row reveal">
           <div className="room-label">
             <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kuchyně s ostrovem" loading="lazy" decoding="async" />
@@ -672,24 +672,26 @@ export default function Home() {
               <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně - modré skříňky" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kuchyně - americká lednička" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6964-HDR.webp" alt="Kuchyně - výhled na zahradu" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6969-HDR.webp" alt="Kuchyně - pracovní deska" loading="lazy" decoding="async" />
             </div>
             <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
             <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
           </div>
         </div>
 
-        {/* Obývací pokoj — 2 fotky v scroll galerii */}
+        {/* Obývací pokoj */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací pokoj s kuchyní - open space" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Obývací pokoj - TV a okno do zahrady" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací pokoj - open space" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Obývací pokoj - TV a okno" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6994-HDR.webp" alt="Obývací pokoj - třetí úhel" loading="lazy" decoding="async" />
             </div>
             <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
             <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací pokoj - sedačka a výhled na zahradu" loading="lazy" decoding="async" />
+            <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací pokoj - sedačka a výhled" loading="lazy" decoding="async" />
             <div className="room-label-text">
               <p>Prostor pro život</p>
               <h3>Obývací pokoj</h3>
@@ -700,18 +702,37 @@ export default function Home() {
         {/* Chodby a vstupy */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba se zelenými dveřmi" loading="lazy" decoding="async" />
+            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba" loading="lazy" decoding="async" />
             <div className="room-label-text">
               <p>Každý detail s&nbsp;péčí</p>
               <h3>Chodby a&nbsp;vstupy</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" decoding="async" />
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6731-HDR.webp" alt="Chodba - druhý pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6736-HDR.webp" alt="Chodba - třetí pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6829-HDR.webp" alt="Chodba - průchod" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6924-HDR.webp" alt="Chodba - detail" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6934-HDR.webp" alt="Chodba - vstup" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
         </div>
 
-        {/* Ložnice */}
+        {/* Hlavní ložnice */}
         <div className="room-row reverse reveal">
-          <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - Provence tapeta a výhled" loading="lazy" decoding="async" />
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - Provence tapeta" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6741-HDR.webp" alt="Ložnice - druhý úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6751-HDR.webp" alt="Ložnice - třetí úhel" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
           <div className="room-label">
             <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" decoding="async" />
             <div className="room-label-text">
@@ -721,24 +742,65 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Koupelna */}
+        {/* Hlavní koupelna */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Koupelna" loading="lazy" decoding="async" />
+            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Hlavní koupelna" loading="lazy" decoding="async" />
             <div className="room-label-text">
               <p>Autorský design</p>
               <h3>Koupelna</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Koupelna - sprchový kout a umyvadla" loading="lazy" decoding="async" />
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Koupelna - sprchový kout" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6711-HDR.webp" alt="Koupelna - druhý úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6716-HDR.webp" alt="Koupelna - třetí úhel" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
         </div>
 
-        {/* Hostinský pokoj — 2 fotky v scroll galerii */}
+        {/* Pracovna */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Hostinský pokoj - přední pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6772-HDR.webp" alt="Pracovna - první pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6787-HDR.webp" alt="Pracovna - druhý pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6794-HDR.webp" alt="Pracovna - třetí pohled" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6780-HDR.webp" alt="Pracovna" loading="lazy" decoding="async" />
+            <div className="room-label-text">
+              <p>Místo pro myšlenky</p>
+              <h3>Pracovna</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Záchod */}
+        <div className="room-row reveal">
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6914-HDR.webp" alt="Záchod" loading="lazy" decoding="async" />
+            <div className="room-label-text">
+              <p>Promyšlené zázemí</p>
+              <h3>Záchod</h3>
+            </div>
+          </div>
+          <img src="/images/zasilka/PS1A6919-HDR.webp" alt="Záchod - druhý pohled" loading="lazy" decoding="async" />
+        </div>
+
+        {/* Hostinský pokoj */}
+        <div className="room-row reverse reveal">
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Hostinský pokoj" loading="lazy" decoding="async" />
               <img src="/images/zasilka/PS1A6854-HDR.webp" alt="Hostinský pokoj - druhý úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6859-HDR.webp" alt="Hostinský pokoj - třetí úhel" loading="lazy" decoding="async" />
             </div>
             <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
             <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
@@ -761,19 +823,35 @@ export default function Home() {
               <h3>Hostinská koupelna</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6815-HDR.webp" alt="Hostinská koupelna - sprchový kout" loading="lazy" decoding="async" />
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6815-HDR.webp" alt="Hostinská koupelna - sprchový kout" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6822-HDR.webp" alt="Hostinská koupelna - druhý úhel" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
         </div>
 
         {/* Technické zázemí */}
-        <div className="room-row reveal">
+        <div className="room-row reverse reveal">
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Kotelna - tepelné čerpadlo" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6884-HDR.webp" alt="Technické zázemí - druhý pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6889-HDR.webp" alt="Technické zázemí - třetí pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6894-HDR.webp" alt="Technické zázemí - čtvrtý pohled" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+          </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Prádelna s pračkou a sušičkou" loading="lazy" decoding="async" />
+            <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Prádelna" loading="lazy" decoding="async" />
             <div className="room-label-text">
               <p>Zázemí v&nbsp;pořádku</p>
               <h3>Technické zázemí</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Kotelna - tepelné čerpadlo" loading="lazy" decoding="async" />
         </div>
       </section>
 
