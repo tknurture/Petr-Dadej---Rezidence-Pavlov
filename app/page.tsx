@@ -356,10 +356,6 @@ export default function Home() {
             <div className="stat-label">m² pozemku</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">360°</div>
-            <div className="stat-label">panoramatický výhled</div>
-          </div>
-          <div className="stat-item">
             <div className="stat-number">100%</div>
             <div className="stat-label">soukromí</div>
           </div>
