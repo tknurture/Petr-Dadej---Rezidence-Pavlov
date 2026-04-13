@@ -752,6 +752,18 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Hostinská koupelna */}
+        <div className="room-row reveal">
+          <div className="room-label">
+            <img src="/images/zasilka/PS1A6808-HDR.webp" alt="Hostinská koupelna" loading="lazy" decoding="async" />
+            <div className="room-label-text">
+              <p>Vlastní zázemí</p>
+              <h3>Hostinská koupelna</h3>
+            </div>
+          </div>
+          <img src="/images/zasilka/PS1A6815-HDR.webp" alt="Hostinská koupelna - sprchový kout" loading="lazy" decoding="async" />
+        </div>
+
         {/* Technické zázemí */}
         <div className="room-row reveal">
           <div className="room-label">
