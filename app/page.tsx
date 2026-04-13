@@ -60,6 +60,32 @@ export default function Home() {
       observer.observe(el);
     });
 
+    // ── Download panel ──
+    const dlTrigger = document.getElementById('dlTrigger');
+    const dlPanel = document.getElementById('dlPanel');
+    const dlOverlay = document.getElementById('dlOverlay');
+    const dlClose = document.getElementById('dlClose');
+    let dlScrollPos = 0;
+
+    function openDl() {
+      dlScrollPos = window.scrollY;
+      dlPanel?.classList.add('open');
+      dlOverlay?.classList.add('open');
+      document.body.classList.add('menu-open');
+      document.body.style.top = `-${dlScrollPos}px`;
+    }
+    function closeDl() {
+      dlPanel?.classList.remove('open');
+      dlOverlay?.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      document.body.style.top = '';
+      window.scrollTo(0, dlScrollPos);
+    }
+
+    dlTrigger?.addEventListener('click', openDl);
+    dlClose?.addEventListener('click', closeDl);
+    dlOverlay?.addEventListener('click', closeDl);
+
     // ── Room scroll galleries ──
     document.querySelectorAll<HTMLElement>('.room-scroll').forEach((container) => {
       const track = container.querySelector<HTMLElement>('.room-scroll-track');
@@ -753,6 +779,92 @@ export default function Home() {
         </div>
         <p>&copy; 2026 Petr Dadej. Všechna práva vyhrazena.</p>
       </footer>
+
+      {/* DOWNLOAD TRIGGER */}
+      <button id="dlTrigger" className="dl-trigger">Ke stažení</button>
+
+      {/* DOWNLOAD OVERLAY */}
+      <div id="dlOverlay" className="dl-overlay" />
+
+      {/* DOWNLOAD PANEL */}
+      <div id="dlPanel" className="dl-panel">
+        <button id="dlClose" className="dl-close" aria-label="Zavřít">×</button>
+        <p className="section-label">Dokumentace</p>
+        <h3 className="dl-panel-title">Ke stažení</h3>
+        <div className="gold-line"></div>
+        <p>Technická dokumentace, půdorysy a podklady k nemovitosti.</p>
+        <ul className="dl-list">
+          <li>
+            <a href="/documents/pudorys.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Půdorys
+            </a>
+          </li>
+          <li>
+            <a href="/documents/pudorys-1np.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Půdorys 1.NP
+            </a>
+          </li>
+          <li>
+            <a href="/documents/pudorys-1np-2.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Půdorys 1.NP (varianta 2)
+            </a>
+          </li>
+          <li>
+            <a href="/documents/pohledy.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Pohledy
+            </a>
+          </li>
+          <li>
+            <a href="/documents/rez-a.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Řez A
+            </a>
+          </li>
+          <li>
+            <a href="/documents/zaklady.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Základy
+            </a>
+          </li>
+          <li>
+            <a href="/documents/krov-vaznikovy.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Krov vazníkový
+            </a>
+          </li>
+          <li>
+            <a href="/documents/situacni-vykres.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Situační výkres
+            </a>
+          </li>
+          <li>
+            <a href="/documents/zamereni-pozemku.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Zaměření pozemku
+            </a>
+          </li>
+          <li>
+            <a href="/documents/rozbor-vody.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Rozbor vody
+            </a>
+          </li>
+          <li>
+            <a href="/documents/dokumentace-stavby.pdf" download>
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+              Dokumentace stavby
+            </a>
+          </li>
+        </ul>
+        <a href="/documents/rezidence-pavlov-dokumenty.zip" download className="dl-zip-btn">
+          Stáhnout vše (ZIP)
+        </a>
+      </div>
 
       {/* CURSOR TRAIL */}
       <canvas
