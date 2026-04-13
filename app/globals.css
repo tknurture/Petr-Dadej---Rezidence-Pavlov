@@ -141,6 +141,17 @@ section { padding: 120px 48px; }
 .room-label-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--white); }
 .room-label-text p { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-top: 4px; }
 
+/* ── ROOM SCROLL GALLERY ── */
+.room-scroll { position: relative; overflow: hidden; }
+.room-scroll-track { display: flex; height: 100%; min-height: 360px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.room-scroll-track::-webkit-scrollbar { display: none; }
+.room-scroll-track img { flex-shrink: 0; min-width: 100%; height: 100%; min-height: 360px; object-fit: cover; scroll-snap-align: start; display: block; transition: none; }
+.room-scroll-track img:hover { transform: none; }
+.room-scroll-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: rgba(27,42,74,0.65); color: var(--gold); border: none; font-size: 24px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5; opacity: 0; transition: opacity 0.2s ease; }
+.room-scroll:hover .room-scroll-btn { opacity: 1; }
+.room-scroll-prev { left: 0; }
+.room-scroll-next { right: 0; }
+
 /* ── EXTERIOR GALLERY ── */
 .exterior-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .exterior-grid img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.6s ease; }
@@ -204,6 +215,8 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .tl-image-grid img { height: 160px; }
   .room-row, .room-row.reverse { grid-template-columns: 1fr 1fr; }
   .room-row img { min-height: 280px; }
+  .room-scroll-track { min-height: 280px; }
+  .room-scroll-track img { min-height: 280px; }
   .exterior-grid img { height: 240px; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
   .contact-info .gold-line { margin-left: auto; margin-right: auto; }
@@ -258,6 +271,8 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .image-break-text h2 { font-size: clamp(24px,6vw,36px); }
   .room-row, .room-row.reverse { grid-template-columns: 1fr; gap: 12px; }
   .room-row img { min-height: 220px; }
+  .room-scroll-track { min-height: 220px; }
+  .room-scroll-track img { min-height: 220px; }
   .exterior-grid { grid-template-columns: 1fr; gap: 8px; }
   .exterior-grid .wide { grid-column: span 1; }
   .exterior-grid img { height: 220px; }
@@ -298,6 +313,8 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   .tl-image-grid img { height: 120px; }
   .image-break { height: 40vh; min-height: 260px; }
   .room-row img { min-height: 180px; }
+  .room-scroll-track { min-height: 180px; }
+  .room-scroll-track img { min-height: 180px; }
   .exterior-grid img { height: 180px; }
   .lifestyle { padding: 56px 16px; }
   .contact-photo img { width: 180px; height: 240px; }
