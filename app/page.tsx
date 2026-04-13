@@ -709,16 +709,9 @@ export default function Home() {
           <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" decoding="async" />
         </div>
 
-        {/* Ložnice — 2 fotky v scroll galerii */}
+        {/* Ložnice */}
         <div className="room-row reverse reveal">
-          <div className="room-scroll">
-            <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - Provence tapeta a výhled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Ložnice - modrý pruh" loading="lazy" decoding="async" />
-            </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
-          </div>
+          <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - Provence tapeta a výhled" loading="lazy" decoding="async" />
           <div className="room-label">
             <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" decoding="async" />
             <div className="room-label-text">
