@@ -110,6 +110,7 @@ export default function Home() {
       const MAX_POINTS = 50;
       let isTouchDevice = false;
       let animFrame: number;
+      let loopRunning = false;
 
       function resize() {
         w = canvas!.width = window.innerWidth;
@@ -121,8 +122,15 @@ export default function Home() {
       const onTouch = () => {
         isTouchDevice = true;
         cancelAnimationFrame(animFrame);
+        loopRunning = false;
       };
       window.addEventListener('touchstart', onTouch, { once: true, passive: true });
+
+      function startLoop() {
+        if (isTouchDevice || loopRunning) return;
+        loopRunning = true;
+        animFrame = requestAnimationFrame(draw);
+      }
 
       const onMouseMove = (e: MouseEvent) => {
         mouseX = e.clientX;
@@ -136,11 +144,19 @@ export default function Home() {
           vy: (Math.random() - 0.5) * 0.5,
         });
         if (trail.length > MAX_POINTS) trail.shift();
+        startLoop();
       };
       window.addEventListener('mousemove', onMouseMove);
 
       function draw() {
-        if (isTouchDevice) return;
+        if (isTouchDevice) { loopRunning = false; return; }
+
+        const hasCursor = mouseX > 0 && mouseY > 0;
+        if (trail.length === 0 && !hasCursor) {
+          loopRunning = false;
+          return; // nic ke kreslení — zastaví smyčku
+        }
+
         ctx.clearRect(0, 0, w, h);
 
         for (let i = trail.length - 1; i >= 0; i--) {
@@ -181,7 +197,7 @@ export default function Home() {
           ctx.stroke();
         }
 
-        if (mouseX > 0 && mouseY > 0) {
+        if (hasCursor) {
           ctx.beginPath();
           ctx.arc(mouseX, mouseY, 14, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(197, 165, 90, 0.1)';
@@ -200,7 +216,6 @@ export default function Home() {
 
         animFrame = requestAnimationFrame(draw);
       }
-      draw();
 
       // Cleanup for cursor trail
       return () => {
