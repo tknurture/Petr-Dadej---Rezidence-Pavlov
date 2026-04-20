@@ -476,7 +476,7 @@ export default function Home() {
           <p>
             Rezidence Pavlov není běžný rodinný dům. Je to místo s&nbsp;duší,
             které prošlo pečlivou rekonstrukcí a&nbsp;proměnilo se v&nbsp;rezidenci
-            nad Mohelnicí s&nbsp;výhledem na Bouzov a&nbsp;Praděd.
+            nad Mohelnicí s&nbsp;výhledem na Bouzov, Úsov a&nbsp;Praděd.
           </p>
           <div className="highlight-quote">
             {'\u201ENezáleží jen na tom, kolik stojí,'}<br />{'ale jakou hodnotu nabízí.\u201C'}
@@ -527,7 +527,7 @@ export default function Home() {
               <h3 className="tl-title">Vize a místo</h3>
               <p className="tl-desc">
                 Všechno začalo nalezením výjimečné lokace — kopec nad Mohelnicí
-                s&nbsp;panoramatickým výhledem na Bouzov a&nbsp;Praděd. Místo,
+                s&nbsp;panoramatickým výhledem na Bouzov, Úsov a&nbsp;Praděd. Místo,
                 kde se rodí klid a&nbsp;absolutní soukromí. Hektar vlastního světa
                 čekající na svůj příběh.
               </p>
