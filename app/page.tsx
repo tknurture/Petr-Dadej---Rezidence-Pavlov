@@ -885,7 +885,7 @@ export default function Home() {
       <section className="lifestyle">
         <div className="reveal">
           <p className="section-label">Epilog</p>
-          <h2 className="section-title">Přál bych si, aby ta duše,<br />kterou jsme domu vetkli,<br />žila dále.</h2>
+          <h2 className="section-title">Domov pro váš příběh</h2>
           <div className="gold-line"></div>
           <p>
             Rozhodnutí o koupi u výjimečných nemovitostí vzniká emocí,
