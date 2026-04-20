@@ -1,8 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function Home() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const openLightbox = useCallback((src: string) => setLightboxSrc(src), []);
+  const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const menuToggleRef = useRef<HTMLButtonElement>(null);
@@ -654,7 +658,7 @@ export default function Home() {
       </div>
 
       {/* INTERIOR GALLERY */}
-      <section id="interior" className="rooms">
+      <section id="interior" className="rooms" onClick={e => { const t = e.target as HTMLElement; if (t.tagName === 'IMG') openLightbox((t as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
           <p className="section-label">Interiér</p>
           <h2 className="section-title">Nahlédněte dovnitř</h2>
@@ -860,7 +864,7 @@ export default function Home() {
       </section>
 
       {/* EXTERIOR */}
-      <section id="exterior" className="rooms">
+      <section id="exterior" className="rooms" onClick={e => { const t = e.target as HTMLElement; if (t.tagName === 'IMG') openLightbox((t as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
           <p className="section-label">Exteriér</p>
           <h2 className="section-title">Hektar vlastního světa</h2>
@@ -1072,6 +1076,14 @@ export default function Home() {
           zIndex: 9999,
         }}
       />
+
+      {/* LIGHTBOX */}
+      {lightboxSrc && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox} aria-label="Zavřít">&#x2715;</button>
+          <img src={lightboxSrc} alt="" onClick={e => e.stopPropagation()} />
+        </div>
+      )}
     </>
   );
 }
