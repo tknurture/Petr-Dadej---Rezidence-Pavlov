@@ -626,10 +626,31 @@ export default function Home() {
             <div className="tl-dot"></div>
           </div>
 
-          {/* 6 - Finální podoba */}
+          {/* 6 - Technologie a zázemí */}
+          <div className="tl-item">
+            <div className="tl-content reveal-left">
+              <p className="tl-year">Kapitola VI</p>
+              <h3 className="tl-title">Technologie a&nbsp;zázemí</h3>
+              <p className="tl-desc">
+                Za klidem tohoto místa stojí promyšlené technické řešení, které zajišťuje
+                komfort i&nbsp;dlouhodobou soběstačnost.
+                Tepelné čerpadlo Daikin s&nbsp;klimatizací udržuje příjemnou teplotu po celý rok.
+                Vlastní vrt o&nbsp;hloubce 90 metrů zajišťuje kvalitní měkkou vodu,
+                doplněnou o&nbsp;zásobník a&nbsp;filtraci. Odpadní vody jsou řešeny moderní
+                čističkou (ČOV) s&nbsp;možností dalšího využití.
+                Technologie byly instalovány v&nbsp;rámci rekonstrukce a&nbsp;jsou pravidelně servisovány.
+              </p>
+            </div>
+            <div className="tl-image reveal-right">
+              <div className="tl-placeholder">Fotografie bude doplněna</div>
+            </div>
+            <div className="tl-dot"></div>
+          </div>
+
+          {/* 7 - Rezidence dnes */}
           <div className="tl-item">
             <div className="tl-content reveal-right">
-              <p className="tl-year">Kapitola VI</p>
+              <p className="tl-year">Kapitola VII</p>
               <h3 className="tl-title">Rezidence dnes</h3>
               <p className="tl-desc">
                 Dnes je Rezidence Pavlov ve fázi, kdy to nejnáročnější je za námi.
