@@ -147,11 +147,15 @@ export default function Home() {
       gateMsg.textContent = '';
 
       try {
+        const fileName = pendingHref?.includes('rezidence-pavlov-dokumenty.zip')
+          ? 'vsechny soubory'
+          : (pendingHref?.split('/').pop()?.replace(/\.pdf$/i, '') ?? 'dokument');
         const res = await fetch('https://n8n.korysol.cz/webhook/52c43095-3921-49ef-81b4-6438254739c4', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email,
+            typ_formulare: fileName,
             source: 'Rezidence Pavlov - Stažení dokumentů',
             timestamp: new Date().toISOString(),
           }),
@@ -382,6 +386,7 @@ export default function Home() {
       email: (formData.get('email') as string)?.trim(),
       phone: (formData.get('phone') as string)?.trim(),
       message: (formData.get('message') as string)?.trim(),
+      typ_formulare: 'hlavni_formular',
       source: 'Rezidence Pavlov - Landing Page',
       timestamp: new Date().toISOString(),
     };
