@@ -479,7 +479,7 @@ export default function Home() {
             nad Mohelnicí s&nbsp;výhledem na Bouzov a&nbsp;Praděd.
           </p>
           <div className="highlight-quote">
-            {'\u201EDomov si nevybíráte rozumem, ale pocitem.'}<br />{'\u00A0Ten správný poznáte hned.\u201C'}
+            {'\u201ENezáleží jen na tom, kolik stojí,'}<br />{'ale jakou hodnotu nabízí.\u201C'}
           </div>
           <p>
             Od prvních vizí přes měsíce rekonstrukce až po finální podobu
