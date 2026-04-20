@@ -642,7 +642,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-right">
-              <div className="tl-placeholder">Fotografie bude doplněna</div>
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Tepelné čerpadlo Daikin" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
