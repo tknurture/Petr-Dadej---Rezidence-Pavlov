@@ -504,6 +504,10 @@ export default function Home() {
             <div className="stat-number">1</div>
             <div className="stat-label">hektar vlastního světa</div>
           </div>
+          <div className="stat-item">
+            <div className="stat-number">270°</div>
+            <div className="stat-label">výhled do krajiny</div>
+          </div>
         </div>
       </section>
 
