@@ -892,7 +892,7 @@ export default function Home() {
           <div className="gold-line"></div>
         </div>
         <div className="exterior-grid reveal">
-          <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp" alt="Jarní panorama" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151720_0026_D.jpg" alt="Jarní panorama" loading="lazy" />
           <img src="/images/DJI_20260219124228_0023_D-HDR.webp" alt="Rezidence v zimě - ptačí pohled" loading="lazy" />
           <img src="/images/DJI_20260219124342_0030_D-HDR.webp" alt="Pozemek v zimě" loading="lazy" />
           <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Příjezdová cesta" loading="lazy" />
