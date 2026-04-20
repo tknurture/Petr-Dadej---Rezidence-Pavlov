@@ -660,7 +660,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Rezidence dnes - jarní pohled" loading="lazy" />
+              <img src="/images/zasilka/rezidence-dnes.webp" alt="Rezidence dnes - jarní pohled" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
