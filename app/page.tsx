@@ -606,7 +606,7 @@ export default function Home() {
               <h3 className="tl-title">Soukromý svět</h3>
               <p className="tl-desc">
                 Ložnice s dekorativní kamennou stěnou a&nbsp;tapetou
-                inspirovanou francouzským Provence. Dřevěné dveře
+                inspirovanou středomořím. Dřevěné dveře
                 sladěné s&nbsp;tapetou — s&nbsp;vynýtovanými šrouby
                 — dotváří jedinečný charakter prostoru.
                 Každý pokoj je originál, kde se prolíná útulnost
