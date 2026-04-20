@@ -610,7 +610,7 @@ export default function Home() {
                 sladěné s&nbsp;tapetou — s&nbsp;vynýtovanými šrouby
                 — dotváří jedinečný charakter prostoru.
                 Každý pokoj je originál, kde se prolíná útulnost
-                s&nbsp;uměním.
+                s&nbsp;uměním, a&nbsp;kde se každé ráno probouzíte s&nbsp;výhledem do zeleně.
               </p>
             </div>
             <div className="tl-image reveal-right">
