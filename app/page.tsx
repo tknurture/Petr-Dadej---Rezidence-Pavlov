@@ -898,7 +898,7 @@ export default function Home() {
           <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Příjezdová cesta" loading="lazy" />
           <img src="/images/DJI_20260219124424_0034_D-HDR.webp" alt="Panoramatický výhled" loading="lazy" />
           <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Jarní západ slunce" loading="lazy" />
-          <img className="wide" src="/images/zasilka/DJI_20260305151720_0026_D.jpg" alt="Rezidence v krajině" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151720_0026_D.jpg" alt="Rezidence v krajině" loading="lazy" style={{objectPosition: '60% 70%'}} />
         </div>
       </section>
 
