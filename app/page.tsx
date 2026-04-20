@@ -149,7 +149,7 @@ export default function Home() {
       try {
         const fileName = pendingHref?.includes('rezidence-pavlov-dokumenty.zip')
           ? 'vsechny soubory'
-          : (pendingHref?.split('/').pop()?.replace(/\.pdf$/i, '') ?? 'dokument');
+          : ((pendingHref?.split('/').pop()?.replace(/\.pdf$/i, '') ?? 'dokument') + '1');
         const res = await fetch('https://n8n.korysol.cz/webhook/52c43095-3921-49ef-81b4-6438254739c4', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
