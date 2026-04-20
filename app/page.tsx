@@ -449,8 +449,7 @@ export default function Home() {
         </video>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <p className="hero-label">Pavlov 163</p>
-          <h1 className="hero-title">Rezidence<br />Pavlov</h1>
+<h1 className="hero-title">Rezidence<br />Pavlov</h1>
           <p className="hero-subtitle">S výhledem, co se neokouká</p>
           <p className="hero-sub2">Hektar vlastního světa</p>
           <div className="hero-divider"></div>
