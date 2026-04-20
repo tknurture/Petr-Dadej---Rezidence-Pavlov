@@ -123,10 +123,6 @@ export default function Home() {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const href = link.getAttribute('href') || '';
-        if (sessionStorage.getItem('dlEmailSubmitted')) {
-          triggerDownload(href);
-          return;
-        }
         openGate(href);
       });
     });
@@ -161,7 +157,6 @@ export default function Home() {
           }),
         });
         if (res.ok) {
-          sessionStorage.setItem('dlEmailSubmitted', '1');
           const href = pendingHref;
           closeGate();
           if (href) triggerDownload(href);
