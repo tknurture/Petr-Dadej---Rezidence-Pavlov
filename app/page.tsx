@@ -628,10 +628,10 @@ export default function Home() {
               <p className="tl-year">Kapitola VI</p>
               <h3 className="tl-title">Rezidence dnes</h3>
               <p className="tl-desc">
-                Dnes je Rezidence Pavlov kompletní — hotové dílo,
-                které čeká na svého nového majitele. Místo s&nbsp;charakterem,
-                výhledy a&nbsp;příběhem, který si zaslouží pokračování.
-                Rezidence, která se stane vaším domovem.
+                Dnes je Rezidence Pavlov ve fázi, kdy to nejnáročnější je za námi.
+                Zásadní rekonstrukce byla provedena s&nbsp;důrazem na kvalitu
+                a&nbsp;dlouhodobou hodnotu, takže budoucí majitel se už může soustředit
+                na to nejpříjemnější – dotvořit si prostor podle vlastních představ.
               </p>
             </div>
             <div className="tl-image reveal-left">
