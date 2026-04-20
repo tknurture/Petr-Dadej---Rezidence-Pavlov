@@ -533,7 +533,7 @@ export default function Home() {
               </p>
             </div>
             <div className="tl-image reveal-right">
-              <img src="/images/zasilka/DJI_20260305151850_0030_D-HDR.webp" alt="Lokace - výhled nad Mohelnicí" loading="lazy" />
+              <img src="/images/pavlov_vize.jpg" alt="Výhled z rezidence nad Mohelnicí" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
