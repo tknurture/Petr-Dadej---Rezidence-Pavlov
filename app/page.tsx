@@ -565,7 +565,7 @@ export default function Home() {
               <p className="tl-year">Kapitola III</p>
               <h3 className="tl-title">Srdce domova</h3>
               <p className="tl-desc">
-                Kuchyně s&nbsp;ručně barvenými modrými skříňkami, žulovým
+                Zakázková dubová kuchyně s&nbsp;žulovým
                 pultem a&nbsp;industriálním osvětlením se stala srdcem celého domu.
                 Otevřený prostor propojený s&nbsp;obývací částí vytváří
                 velkorysý společenský prostor pro rodinu i&nbsp;přátele.
