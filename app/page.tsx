@@ -809,16 +809,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Záchod */}
+        {/* Toaleta */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6914-HDR.webp" alt="Záchod" loading="lazy" decoding="async" />
+            <img src="/images/zasilka/PS1A6914-HDR.webp" alt="Toaleta" loading="lazy" decoding="async" />
             <div className="room-label-text">
-              <p>Promyšlené zázemí</p>
-              <h3>Záchod</h3>
+              <p>Funkční detail</p>
+              <h3>Toaleta</h3>
             </div>
           </div>
-          <img src="/images/zasilka/PS1A6919-HDR.webp" alt="Záchod - druhý pohled" loading="lazy" decoding="async" />
+          <img src="/images/zasilka/PS1A6919-HDR.webp" alt="Toaleta - druhý pohled" loading="lazy" decoding="async" />
         </div>
 
         {/* Hostinský pokoj */}
