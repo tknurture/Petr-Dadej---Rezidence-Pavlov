@@ -610,9 +610,7 @@ export default function Home() {
               <h3 className="tl-title">Soukromý svět</h3>
               <p className="tl-desc">
                 Ložnice s dekorativní kamennou stěnou a&nbsp;tapetou
-                inspirovanou středomořím. Dřevěné dveře
-                sladěné s&nbsp;tapetou — s&nbsp;vynýtovanými šrouby
-                — dotváří jedinečný charakter prostoru.
+                inspirovanou středomořím.
                 Každý pokoj je originál, kde se prolíná útulnost
                 s&nbsp;uměním, a&nbsp;kde se každé ráno probouzíte s&nbsp;výhledem do zeleně.
               </p>
