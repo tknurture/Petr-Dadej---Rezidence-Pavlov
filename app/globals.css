@@ -575,6 +575,16 @@ footer p { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
   opacity: 0.7; transition: opacity 0.2s;
 }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-prev, .lightbox-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.45); border: none; color: #fff;
+  font-size: 52px; line-height: 1; cursor: pointer;
+  padding: 12px 18px; opacity: 0.7; transition: opacity 0.2s, background 0.2s;
+  border-radius: 4px; z-index: 1;
+}
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-prev:hover, .lightbox-next:hover { opacity: 1; background: rgba(0,0,0,0.7); }
 
 /* ── TL PLACEHOLDER ── */
 .tl-placeholder {

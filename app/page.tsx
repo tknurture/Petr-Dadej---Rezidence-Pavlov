@@ -3,9 +3,20 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function Home() {
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const openLightbox = useCallback((src: string) => setLightboxSrc(src), []);
-  const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const galleryRef = useRef<string[]>([]);
+
+  const openLightbox = useCallback((src: string) => {
+    if (galleryRef.current.length === 0) {
+      const imgs = document.querySelectorAll('#interior img, #exterior img');
+      galleryRef.current = Array.from(imgs).map(img => (img as HTMLImageElement).src);
+    }
+    const idx = galleryRef.current.findIndex(s => s.endsWith(src.replace(/^.*\/images\//, '/images/')));
+    setLightboxIdx(idx >= 0 ? idx : 0);
+  }, []);
+  const closeLightbox = useCallback(() => setLightboxIdx(null), []);
+  const lightboxPrev = useCallback(() => setLightboxIdx(i => i !== null ? (i - 1 + galleryRef.current.length) % galleryRef.current.length : null), []);
+  const lightboxNext = useCallback(() => setLightboxIdx(i => i !== null ? (i + 1) % galleryRef.current.length : null), []);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -17,6 +28,17 @@ export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
   const formBtnRef = useRef<HTMLButtonElement>(null);
   const formMsgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (lightboxIdx === null) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxIdx, closeLightbox, lightboxPrev, lightboxNext]);
 
   useEffect(() => {
     // ── Header scroll ──
@@ -1097,10 +1119,12 @@ export default function Home() {
       />
 
       {/* LIGHTBOX */}
-      {lightboxSrc && (
+      {lightboxIdx !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <button className="lightbox-close" onClick={closeLightbox} aria-label="Zavřít">&#x2715;</button>
-          <img src={lightboxSrc} alt="" onClick={e => e.stopPropagation()} />
+          <button className="lightbox-prev" onClick={e => { e.stopPropagation(); lightboxPrev(); }} aria-label="Předchozí">&#8249;</button>
+          <img src={galleryRef.current[lightboxIdx]} alt="" onClick={e => e.stopPropagation()} />
+          <button className="lightbox-next" onClick={e => { e.stopPropagation(); lightboxNext(); }} aria-label="Další">&#8250;</button>
         </div>
       )}
     </>
