@@ -875,8 +875,8 @@ export default function Home() {
           <div className="room-label">
             <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Prádelna" loading="lazy" decoding="async" />
             <div className="room-label-text">
-              <p>Zázemí v&nbsp;pořádku</p>
-              <h3>Technické zázemí</h3>
+              <p>Moderní technologie</p>
+              <h3>Technická místnost</h3>
             </div>
           </div>
         </div>
