@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function Home() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [ytExpanded, setYtExpanded] = useState(false);
   const galleryRef = useRef<string[]>([]);
 
   const openLightbox = useCallback((src: string) => {
@@ -1102,6 +1103,29 @@ export default function Home() {
             <div id="dlGateMsg" className="form-message"></div>
           </form>
         </div>
+      </div>
+
+      {/* YOUTUBE WIDGET */}
+      <div className={`yt-widget${ytExpanded ? ' yt-expanded' : ''}`}>
+        {ytExpanded ? (
+          <>
+            <button className="yt-close" onClick={() => setYtExpanded(false)} aria-label="Zavřít video">×</button>
+            <iframe
+              src="https://www.youtube.com/embed/7ebzI_obhDw?autoplay=1&rel=0"
+              title="Rezidence Pavlov"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </>
+        ) : (
+          <button className="yt-thumb" onClick={() => setYtExpanded(true)} aria-label="Přehrát video o rezidenci">
+            <img src="https://img.youtube.com/vi/7ebzI_obhDw/mqdefault.jpg" alt="Rezidence Pavlov – video" />
+            <span className="yt-play-icon">
+              <svg viewBox="0 0 68 48"><path d="M66.52 7.74C65.7 4.54 63.2 2.04 60 1.22 54.76 0 34 0 34 0S13.24 0 8 1.22C4.8 2.04 2.3 4.54 1.48 7.74 0 13 0 24 0 24s0 11 1.48 16.26c.82 3.2 3.32 5.7 6.52 6.52C13.24 48 34 48 34 48s20.76 0 26-1.22c3.2-.82 5.7-3.32 6.52-6.52C68 35 68 24 68 24s0-11-1.48-16.26z" fill="#ff0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+            </span>
+            <span className="yt-label">Prohlídka rezidence</span>
+          </button>
+        )}
       </div>
 
       {/* CURSOR TRAIL */}
