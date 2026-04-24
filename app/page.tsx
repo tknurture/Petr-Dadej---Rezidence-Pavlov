@@ -2,10 +2,211 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
+const translations = {
+  cs: {
+    dlTopbarLong: 'Ke stažení: půdorysy, technická dokumentace, rozbor vody a další podklady k nemovitosti',
+    dlTopbarShort: 'Dokumentace ke stažení',
+    navStory: 'Příběh',
+    navInterior: 'Interiér',
+    navExterior: 'Exteriér',
+    navContact: 'Kontakt',
+    heroSubtitle: 'S výhledem, co se neokouká',
+    heroSub2: 'Hektar vlastního světa',
+    typewriterPhrase: 'Chci vidět více',
+    introLabel: 'O rezidenci',
+    introTitle: 'Každý výjimečný dům\nmá svůj příběh',
+    introP1: 'Rezidence Pavlov není běžný rodinný dům. Je to místo s duší, které prošlo pečlivou rekonstrukcí a proměnilo se v rezidenci nad Mohelnicí s výhledem na Bouzov, Úsov a Praděd.',
+    introQuote: '„Nezáleží jen na tom, kolik stojí,\nale jakou hodnotu nabízí.“',
+    introP2: 'Od prvních vizí přes měsíce rekonstrukce až po finální podobu — každý detail nese otisk péče a lásky k tomuto místu. Pojďte nahlédnout do příběhu, který čeká na další kapitolu.',
+    statLabel1: 'm² pozemku',
+    statLabel2: 'soukromí',
+    statLabel3: 'hektar vlastního světa',
+    statLabel4: 'výhled do krajiny',
+    storyLabel: 'Příběh rezidence',
+    storyTitle: 'Od vize k realitě',
+    ch1num: 'Kapitola I', ch1title: 'Vize a místo',
+    ch1desc: 'Všechno začalo nalezením výjimečné lokace — kopec nad Mohelnicí s panoramatickým výhledem na Bouzov, Úsov a Praděd. Místo, kde se rodí klid a absolutní soukromí. Hektar vlastního světa čekající na svůj příběh.',
+    ch2num: 'Kapitola II', ch2title: 'Rekonstrukce s duší',
+    ch2desc: 'Kompletní rekonstrukce proměnila dům v rezidenci s jedinečným charakterem. Ruční zpracování detailů, patinované dveře, autorské povrchy stěn a pečlivě zvolené materiály. Každá místnost dostala vlastní identitu.',
+    ch3num: 'Kapitola III', ch3title: 'Srdce domova',
+    ch3desc: 'Zakázková dubová kuchyně s žulovým pultem a industriálním osvětlením se stala srdcem celého domu. Otevřený prostor propojený s obývací částí vytváří velkorysý společenský prostor pro rodinu i přátele.',
+    ch4num: 'Kapitola IV', ch4title: 'Prostor pro život',
+    ch4desc: 'Obývací část s přímým vstupem na zahradu a velkoformátovými okny je zaplavená denním světlem. Celek plynule propojuje kuchyni, jídelnu i relaxační zónu do harmonického a funkčního uspořádání.',
+    ch5num: 'Kapitola V', ch5title: 'Soukromý svět',
+    ch5desc: 'Ložnice s dekorativní kamennou stěnou a tapetou inspirovanou středomořím. Každý pokoj je originál, kde se prolíná útulnost s uměním, a kde se každé ráno probouzíte s výhledem do zeleně.',
+    ch6num: 'Kapitola VI', ch6title: 'Technologie a zázemí',
+    ch6desc: 'Za klidem tohoto místa stojí promyšlené technické řešení, které zajišťuje komfort i dlouhodobou soběstačnost. Tepelné čerpadlo Daikin s klimatizací udržuje příjemnou teplotu po celý rok. Vlastní vrt o hloubce 90 metrů zajišťuje kvalitní měkkou vodu, doplněnou o zásobník a filtraci. Odpadní vody jsou řešeny moderní čističkou (ČOV) s možností dalšího využití. Technologie byly instalovány v rámci rekonstrukce a jsou pravidelně servisovány.',
+    ch7num: 'Kapitola VII', ch7title: 'Víceúčelový prostor',
+    ch7desc: 'Velkorysých 77 m², které se přizpůsobí tomu, jak chcete žít. Nejen třeba garáž, ale i místo pro pohyb, odpočinek i každodenní provoz — se saunou, zázemím pro cvičení, kuchyňkou i posezením. Prostor, který může být zázemím domu, domácí posilovnou i místem pro setkávání.',
+    ch8num: 'Kapitola VIII', ch8title: 'Rezidence dnes',
+    ch8desc: 'Dnes je Rezidence Pavlov ve fázi, kdy to nejnáročnější je za námi. Zásadní rekonstrukce byla provedena s důrazem na kvalitu a dlouhodobou hodnotu, takže budoucí majitel se už může soustředit na to nejpříjemnější – dotvořit si prostor podle vlastních představ.',
+    imageBreakSub: 'Rezidence ve čtyřech ročních obdobích',
+    imageBreakTitle: 'Výhled, který nikdy neomrzí',
+    interiorLabel: 'Interiér',
+    interiorTitle: 'Nahlédněte dovnitř',
+    r1sub: 'Srdce domova', r1title: 'Kuchyně',
+    r2sub: 'Prostor pro život', r2title: 'Obývací pokoj',
+    r3sub: 'Každý detail s péčí', r3title: 'Chodby a vstupy',
+    r4sub: 'Klid a soukromí', r4title: 'Ložnice s příběhem',
+    r5sub: 'Autorský design', r5title: 'Koupelna',
+    r6sub: 'Místo pro myšlenky', r6title: 'Pracovna',
+    r7sub: 'Funkční detail', r7title: 'Toaleta',
+    r8sub: 'Pro vzácné hosty', r8title: 'Hostinský pokoj',
+    r9sub: 'Vlastní zázemí', r9title: 'Hostinská koupelna',
+    r10sub: 'Moderní technologie', r10title: 'Technická místnost',
+    prev: 'Předchozí', next: 'Další',
+    exteriorLabel: 'Exteriér',
+    exteriorTitle: 'Hektar vlastního světa',
+    lifestyleLabel: 'Epilog',
+    lifestyleTitle: 'Domov pro váš příběh',
+    lifestyleP: 'Rozhodnutí o koupi u výjimečných nemovitostí vzniká emocí, ne tabulkou metrů čtverečních. Rezidence Pavlov čeká na svého správného kupce — na další kapitolu svého příběhu.',
+    contactLabel: 'Kontakt',
+    contactTitle: 'Napište další kapitolu',
+    contactExclusive: 'Exkluzivní zastoupení',
+    contactInquiry: 'Nezávazná poptávka',
+    formName: 'Jméno a příjmení',
+    formPhone: 'Telefon',
+    formMessage: 'Vaše zpráva...',
+    formSubmit: 'Odeslat zprávu',
+    formSending: 'Odesílám...',
+    formSuccess: 'Děkujeme! Vaše zpráva byla odeslána. Ozveme se vám co nejdříve.',
+    formError: 'Omlouváme se, zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.',
+    footer: 'Všechna práva vyhrazena.',
+    dlPanelLabel: 'Dokumentace',
+    dlPanelTitle: 'Ke stažení',
+    dlPanelDesc: 'Technická dokumentace, půdorysy a podklady k nemovitosti.',
+    dlZipBtn: 'Stáhnout vše (ZIP)',
+    dlGateLabel: 'Dokumenty ke stažení',
+    dlGateTitle: 'Zadejte e-mail',
+    dlGateDesc: 'Pošleme vám potvrzení a budeme vás informovat o aktualizacích dokumentace.',
+    dlGateEmailPlaceholder: 'Váš e-mail',
+    dlGateBtn: 'Stáhnout',
+    dlGateSending: 'Odesílám...',
+    dlGateSuccess: 'Hotovo! Stahování začíná.',
+    dlGateError: 'Nepodařilo se odeslat. Zkuste to prosím znovu.',
+    docs: ['Půdorys','Řez','Pohledy','Základy','Krov vazníkový','Situační výkres','Zaměření pozemku','Rozbor vody z vlastní studny','PENB','Souhrnná technická zpráva','Dokumentace skutečného provedení stavby'],
+    ytLabel: 'Prohlídka rezidence',
+    ytClose: 'Zavřít video',
+    close: 'Zavřít',
+  },
+  en: {
+    dlTopbarLong: 'Downloads: floor plans, technical documentation, water analysis and other property documents',
+    dlTopbarShort: 'Documentation downloads',
+    navStory: 'Story',
+    navInterior: 'Interior',
+    navExterior: 'Exterior',
+    navContact: 'Contact',
+    heroSubtitle: 'With a view that never gets old',
+    heroSub2: 'A hectare of your own world',
+    typewriterPhrase: 'I want to see more',
+    introLabel: 'About the residence',
+    introTitle: 'Every exceptional home\nhas its own story',
+    introP1: 'Rezidence Pavlov is no ordinary family home. It is a place with a soul — thoughtfully restored and transformed into a residence above Mohelnice with panoramic views of Bouzov, Úsov, and Praděd.',
+    introQuote: '“It’s not just about the price,\nbut about the value it offers.”',
+    introP2: 'From the first visions through months of reconstruction to its final form — every detail carries the imprint of care and love for this place. Come and discover the story that awaits its next chapter.',
+    statLabel1: 'm² of land',
+    statLabel2: 'privacy',
+    statLabel3: 'hectare of your own world',
+    statLabel4: 'panoramic view',
+    storyLabel: 'Story of the residence',
+    storyTitle: 'From vision to reality',
+    ch1num: 'Chapter I', ch1title: 'Vision & Location',
+    ch1desc: 'It all began with finding an exceptional location — a hilltop above Mohelnice with a panoramic view of Bouzov, Úsov and Praděd. A place where calm and absolute privacy are born. A hectare of your own world awaiting its story.',
+    ch2num: 'Chapter II', ch2title: 'A Soulful Renovation',
+    ch2desc: 'A complete renovation transformed the house into a residence with a unique character. Hand-crafted details, patinated doors, original wall finishes and carefully chosen materials. Every room was given its own identity.',
+    ch3num: 'Chapter III', ch3title: 'Heart of the Home',
+    ch3desc: 'A custom oak kitchen with a granite countertop and industrial lighting became the heart of the entire house. The open-plan space connected to the living area creates a generous social space for family and friends.',
+    ch4num: 'Chapter IV', ch4title: 'Space for Living',
+    ch4desc: 'The living area with direct garden access and floor-to-ceiling windows is flooded with natural light. The layout seamlessly connects the kitchen, dining room, and relaxation zone into a harmonious and functional arrangement.',
+    ch5num: 'Chapter V', ch5title: 'A Private World',
+    ch5desc: 'Bedrooms with decorative stone walls and Mediterranean-inspired wallpaper. Every room is an original, where cosiness meets art, and where each morning you wake to views of greenery.',
+    ch6num: 'Chapter VI', ch6title: 'Technology & Infrastructure',
+    ch6desc: 'Behind the calm of this place lies a well-designed technical setup that ensures comfort and long-term self-sufficiency. A Daikin heat pump with air conditioning maintains a pleasant temperature year-round. A private borehole 90 metres deep provides quality soft water, supplemented by a storage tank and filtration. Wastewater is handled by a modern treatment plant (ČOV) with options for further use. All systems were installed during the renovation and are regularly serviced.',
+    ch7num: 'Chapter VII', ch7title: 'Multi-Purpose Space',
+    ch7desc: 'A generous 77 m² that adapts to the way you want to live. Not just a garage — but a place for movement, relaxation and daily routines, featuring a sauna, a workout area, a kitchenette and a lounge. A space that can serve as a home base, a private gym, or a place for gatherings.',
+    ch8num: 'Chapter VIII', ch8title: 'The Residence Today',
+    ch8desc: 'Today, Rezidence Pavlov is at a stage where the most demanding work is behind us. The major renovation was carried out with an emphasis on quality and long-term value, so the future owner can focus on the most enjoyable part — finishing the space according to their own vision.',
+    imageBreakSub: 'The residence through four seasons',
+    imageBreakTitle: 'A view that never gets old',
+    interiorLabel: 'Interior',
+    interiorTitle: 'Take a look inside',
+    r1sub: 'Heart of the home', r1title: 'Kitchen',
+    r2sub: 'Space for living', r2title: 'Living room',
+    r3sub: 'Every detail with care', r3title: 'Hallways & entrances',
+    r4sub: 'Peace and privacy', r4title: 'Bedroom with a story',
+    r5sub: 'Original design', r5title: 'Bathroom',
+    r6sub: 'A place for thought', r6title: 'Study',
+    r7sub: 'Functional detail', r7title: 'WC',
+    r8sub: 'For special guests', r8title: 'Guest room',
+    r9sub: 'Private facilities', r9title: 'Guest bathroom',
+    r10sub: 'Modern technology', r10title: 'Utility room',
+    prev: 'Previous', next: 'Next',
+    exteriorLabel: 'Exterior',
+    exteriorTitle: 'A hectare of your own world',
+    lifestyleLabel: 'Epilogue',
+    lifestyleTitle: 'A home for your story',
+    lifestyleP: 'The decision to buy an exceptional property is made with emotion, not a spreadsheet of square metres. Rezidence Pavlov is waiting for its rightful owner — for the next chapter of its story.',
+    contactLabel: 'Contact',
+    contactTitle: 'Write the next chapter',
+    contactExclusive: 'Exclusive representation',
+    contactInquiry: 'Non-binding inquiry',
+    formName: 'Full name',
+    formPhone: 'Phone',
+    formMessage: 'Your message...',
+    formSubmit: 'Send message',
+    formSending: 'Sending...',
+    formSuccess: 'Thank you! Your message has been sent. We will get back to you as soon as possible.',
+    formError: 'Sorry, your message could not be sent. Please try again or contact us by phone.',
+    footer: 'All rights reserved.',
+    dlPanelLabel: 'Documentation',
+    dlPanelTitle: 'Downloads',
+    dlPanelDesc: 'Technical documentation, floor plans and property documents.',
+    dlZipBtn: 'Download all (ZIP)',
+    dlGateLabel: 'Documents for download',
+    dlGateTitle: 'Enter your email',
+    dlGateDesc: 'We will send you a confirmation and keep you informed about documentation updates.',
+    dlGateEmailPlaceholder: 'Your email',
+    dlGateBtn: 'Download',
+    dlGateSending: 'Sending...',
+    dlGateSuccess: 'Done! Your download is starting.',
+    dlGateError: 'Could not send. Please try again.',
+    docs: ['Floor plan','Cross-section','Elevations','Foundations','Truss roof','Site plan','Land survey','Well water analysis','Energy performance certificate','Summary technical report','As-built documentation'],
+    ytLabel: 'Property tour',
+    ytClose: 'Close video',
+    close: 'Close',
+  },
+} as const;
+
+type Lang = keyof typeof translations;
+
+const docFiles = [
+  '/documents/pudorys.pdf',
+  '/documents/rez.pdf',
+  '/documents/pohledy.pdf',
+  '/documents/zaklady.pdf',
+  '/documents/krov-vaznikovy.pdf',
+  '/documents/situacni-vykres.pdf',
+  '/documents/zamereni-pozemku.pdf',
+  '/documents/rozbor-vody.pdf',
+  '/documents/penb.pdf',
+  '/documents/souhrna-technicka-zprava.pdf',
+  '/documents/dokumentace-stavby.pdf',
+];
+
+const DownloadIcon = () => (
+  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+);
+
 export default function Home() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [ytExpanded, setYtExpanded] = useState(false);
+  const [lang, setLang] = useState<Lang>('cs');
+  const langRef = useRef<Lang>('cs');
   const galleryRef = useRef<string[]>([]);
+
+  useEffect(() => { langRef.current = lang; }, [lang]);
+
+  const tr = translations[lang];
 
   const openLightbox = useCallback((src: string) => {
     if (galleryRef.current.length === 0) {
@@ -159,9 +360,10 @@ export default function Home() {
       e.preventDefault();
       const email = gateEmailInput?.value.trim();
       if (!email || !gateBtn || !gateMsg) return;
+      const t = translations[langRef.current];
 
       gateBtn.disabled = true;
-      gateBtn.textContent = 'Odesílám...';
+      gateBtn.textContent = t.dlGateSending;
       gateMsg.className = 'form-message';
       gateMsg.textContent = '';
 
@@ -188,10 +390,10 @@ export default function Home() {
         }
       } catch {
         gateMsg.className = 'form-message error';
-        gateMsg.textContent = 'Nepodařilo se odeslat. Zkuste to prosím znovu.';
+        gateMsg.textContent = translations[langRef.current].dlGateError;
       } finally {
         gateBtn.disabled = false;
-        gateBtn.textContent = 'Stáhnout';
+        gateBtn.textContent = translations[langRef.current].dlGateBtn;
       }
     });
 
@@ -211,7 +413,6 @@ export default function Home() {
     const lineEl = scrollLineRef.current;
     const typedEl = scrollTypedRef.current;
     const textEl = scrollTypedTextRef.current;
-    const phrase = 'Chci vidět více';
     const typeSpeed = 80;
     const eraseSpeed = 50;
     let charIdx = 0;
@@ -228,6 +429,7 @@ export default function Home() {
 
     function typeChar() {
       if (!typewriterActive) return;
+      const phrase = translations[langRef.current].typewriterPhrase;
       if (charIdx <= phrase.length) {
         if (textEl) textEl.textContent = phrase.slice(0, charIdx);
         charIdx++;
@@ -251,8 +453,7 @@ export default function Home() {
     if (canvas) {
       const ctx = canvas.getContext('2d')!;
       let w: number, h: number;
-      let mouseX = -100,
-        mouseY = -100;
+      let mouseX = -100, mouseY = -100;
       const trail: { x: number; y: number; life: number; size: number; vx: number; vy: number }[] = [];
       const MAX_POINTS = 50;
       let isTouchDevice = false;
@@ -283,9 +484,7 @@ export default function Home() {
         mouseX = e.clientX;
         mouseY = e.clientY;
         trail.push({
-          x: mouseX,
-          y: mouseY,
-          life: 1,
+          x: mouseX, y: mouseY, life: 1,
           size: 3 + Math.random() * 2,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
@@ -297,74 +496,40 @@ export default function Home() {
 
       function draw() {
         if (isTouchDevice) { loopRunning = false; return; }
-
         const hasCursor = mouseX > 0 && mouseY > 0;
-        if (trail.length === 0 && !hasCursor) {
-          loopRunning = false;
-          return; // nic ke kreslení — zastaví smyčku
-        }
+        if (trail.length === 0 && !hasCursor) { loopRunning = false; return; }
 
         ctx.clearRect(0, 0, w, h);
-
         for (let i = trail.length - 1; i >= 0; i--) {
           const p = trail[i];
-          p.life -= 0.02;
-          p.x += p.vx;
-          p.y += p.vy;
-          p.size *= 0.98;
-
-          if (p.life <= 0) {
-            trail.splice(i, 1);
-            continue;
-          }
-
+          p.life -= 0.02; p.x += p.vx; p.y += p.vy; p.size *= 0.98;
+          if (p.life <= 0) { trail.splice(i, 1); continue; }
           const alpha = p.life * 0.6;
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(197, 165, 90, ${alpha * 0.15})`;
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(212, 185, 110, ${alpha})`;
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(197, 165, 90, ${alpha * 0.15})`; ctx.fill();
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212, 185, 110, ${alpha})`; ctx.fill();
         }
-
         if (trail.length > 2) {
-          ctx.beginPath();
-          ctx.moveTo(trail[0].x, trail[0].y);
+          ctx.beginPath(); ctx.moveTo(trail[0].x, trail[0].y);
           for (let i = 1; i < trail.length; i++) {
             const xc = (trail[i].x + trail[i - 1].x) / 2;
             const yc = (trail[i].y + trail[i - 1].y) / 2;
             ctx.quadraticCurveTo(trail[i - 1].x, trail[i - 1].y, xc, yc);
           }
-          ctx.strokeStyle = 'rgba(197, 165, 90, 0.15)';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
+          ctx.strokeStyle = 'rgba(197, 165, 90, 0.15)'; ctx.lineWidth = 1.5; ctx.stroke();
         }
-
         if (hasCursor) {
-          ctx.beginPath();
-          ctx.arc(mouseX, mouseY, 14, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(197, 165, 90, 0.1)';
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.arc(mouseX, mouseY, 8, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(212, 185, 110, 0.25)';
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
-          ctx.fillStyle = '#D4B96E';
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(mouseX, mouseY, 14, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(197, 165, 90, 0.1)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(mouseX, mouseY, 8, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(212, 185, 110, 0.25)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(mouseX, mouseY, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#D4B96E'; ctx.fill();
         }
-
         animFrame = requestAnimationFrame(draw);
       }
 
-      // Cleanup for cursor trail
       return () => {
         window.removeEventListener('scroll', onScroll);
         window.removeEventListener('resize', resize);
@@ -392,9 +557,10 @@ export default function Home() {
     const btn = formBtnRef.current;
     const msg = formMsgRef.current;
     if (!form || !btn || !msg) return;
+    const t = translations[lang];
 
     btn.disabled = true;
-    btn.textContent = 'Odesílám...';
+    btn.textContent = t.formSending;
     msg.className = 'form-message';
     msg.textContent = '';
 
@@ -415,30 +581,29 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-
       if (res.ok) {
         msg.className = 'form-message success';
-        msg.textContent = 'Děkujeme! Vaše zpráva byla odeslána. Ozveme se vám co nejdříve.';
+        msg.textContent = t.formSuccess;
         form.reset();
       } else {
         throw new Error('Server error');
       }
     } catch {
       msg.className = 'form-message error';
-      msg.textContent = 'Omlouváme se, zprávu se nepodařilo odeslat. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.';
+      msg.textContent = t.formError;
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Odeslat zprávu';
+      btn.textContent = t.formSubmit;
     }
   }
 
   return (
     <>
       {/* DOWNLOAD TOP BAR */}
-      <button id="dlTrigger" className="dl-topbar" aria-label="Ke stažení">
+      <button id="dlTrigger" className="dl-topbar" aria-label={tr.dlTopbarShort}>
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-        <span className="dl-topbar-long">Ke stažení: půdorysy, technická dokumentace, rozbor vody a další podklady k nemovitosti</span>
-        <span className="dl-topbar-short">Dokumentace ke stažení</span>
+        <span className="dl-topbar-long">{tr.dlTopbarLong}</span>
+        <span className="dl-topbar-short">{tr.dlTopbarShort}</span>
         <span className="dl-topbar-arrow">→</span>
       </button>
 
@@ -453,32 +618,32 @@ export default function Home() {
           <span></span><span></span><span></span>
         </button>
         <nav ref={navRef}>
-          <a href="#story">Příběh</a>
-          <a href="#interior">Interiér</a>
-          <a href="#exterior">Exteriér</a>
-          <a href="#contact" className="nav-contact-btn">Kontakt</a>
+          <a href="#story">{tr.navStory}</a>
+          <a href="#interior">{tr.navInterior}</a>
+          <a href="#exterior">{tr.navExterior}</a>
+          <a href="#contact" className="nav-contact-btn">{tr.navContact}</a>
+          <button
+            className="lang-toggle"
+            onClick={() => setLang(l => l === 'cs' ? 'en' : 'cs')}
+            aria-label="Switch language"
+          >
+            {lang === 'cs' ? 'EN' : 'CS'}
+          </button>
         </nav>
       </header>
 
       {/* HERO */}
       <section className="hero">
-        <video
-          className="hero-bg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp"
-        >
+        <video className="hero-bg" autoPlay muted loop playsInline preload="auto"
+          poster="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp">
           <source src="/videos/hero.webm" type="video/webm" />
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-<h1 className="hero-title">Rezidence<br />Pavlov</h1>
-          <p className="hero-subtitle">S výhledem, co se neokouká</p>
-          <p className="hero-sub2">Hektar vlastního světa</p>
+          <h1 className="hero-title">Rezidence<br />Pavlov</h1>
+          <p className="hero-subtitle">{tr.heroSubtitle}</p>
+          <p className="hero-sub2">{tr.heroSub2}</p>
           <div className="hero-divider"></div>
           <div className="hero-scroll">
             <a href="#intro" id="scrollLink">
@@ -497,22 +662,14 @@ export default function Home() {
       {/* INTRO */}
       <section id="intro">
         <div className="intro reveal">
-          <p className="section-label">O rezidenci</p>
-          <h2 className="section-title">Každý výjimečný dům<br />má svůj příběh</h2>
+          <p className="section-label">{tr.introLabel}</p>
+          <h2 className="section-title">{tr.introTitle.split('\n').map((l, i) => i === 0 ? <>{l}<br key={i}/></> : l)}</h2>
           <div className="gold-line"></div>
-          <p>
-            Rezidence Pavlov není běžný rodinný dům. Je to místo s&nbsp;duší,
-            které prošlo pečlivou rekonstrukcí a&nbsp;proměnilo se v&nbsp;rezidenci
-            nad Mohelnicí s&nbsp;výhledem na Bouzov, Úsov a&nbsp;Praděd.
-          </p>
+          <p>{tr.introP1}</p>
           <div className="highlight-quote">
-            {'\u201ENezáleží jen na tom, kolik stojí,'}<br />{'ale jakou hodnotu nabízí.\u201C'}
+            {tr.introQuote.split('\n').map((l, i) => i === 0 ? <>{l}<br key={i}/></> : l)}
           </div>
-          <p>
-            Od prvních vizí přes měsíce rekonstrukce až po finální podobu
-            — každý detail nese otisk péče a&nbsp;lásky k&nbsp;tomuto místu.
-            Pojďte nahlédnout do příběhu, který čeká na další kapitolu.
-          </p>
+          <p>{tr.introP2}</p>
         </div>
       </section>
 
@@ -521,19 +678,19 @@ export default function Home() {
         <div className="stats-grid reveal">
           <div className="stat-item">
             <div className="stat-number">10 670</div>
-            <div className="stat-label">m² pozemku</div>
+            <div className="stat-label">{tr.statLabel1}</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">100%</div>
-            <div className="stat-label">soukromí</div>
+            <div className="stat-label">{tr.statLabel2}</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">1</div>
-            <div className="stat-label">hektar vlastního světa</div>
+            <div className="stat-label">{tr.statLabel3}</div>
           </div>
           <div className="stat-item">
             <div className="stat-number">270°</div>
-            <div className="stat-label">výhled do krajiny</div>
+            <div className="stat-label">{tr.statLabel4}</div>
           </div>
         </div>
       </section>
@@ -541,166 +698,121 @@ export default function Home() {
       {/* TIMELINE */}
       <section id="story" className="timeline-section">
         <div className="timeline-header reveal">
-          <p className="section-label">Příběh rezidence</p>
-          <h2 className="section-title">Od vize k realitě</h2>
+          <p className="section-label">{tr.storyLabel}</p>
+          <h2 className="section-title">{tr.storyTitle}</h2>
           <div className="gold-line"></div>
         </div>
 
         <div className="timeline">
-          {/* 1 - Vize */}
+          {/* 1 */}
           <div className="tl-item">
             <div className="tl-content reveal-left">
-              <p className="tl-year">Kapitola I</p>
-              <h3 className="tl-title">Vize a místo</h3>
-              <p className="tl-desc">
-                Všechno začalo nalezením výjimečné lokace — kopec nad Mohelnicí
-                s&nbsp;panoramatickým výhledem na Bouzov, Úsov a&nbsp;Praděd. Místo,
-                kde se rodí klid a&nbsp;absolutní soukromí. Hektar vlastního světa
-                čekající na svůj příběh.
-              </p>
+              <p className="tl-year">{tr.ch1num}</p>
+              <h3 className="tl-title">{tr.ch1title}</h3>
+              <p className="tl-desc">{tr.ch1desc}</p>
             </div>
             <div className="tl-image reveal-right">
-              <img src="/images/pavlov_vize.webp" alt="Výhled z rezidence nad Mohelnicí" loading="lazy" />
+              <img src="/images/pavlov_vize.webp" alt="View from the residence above Mohelnice" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 2 - Rekonstrukce */}
+          {/* 2 */}
           <div className="tl-item">
             <div className="tl-content reveal-right">
-              <p className="tl-year">Kapitola II</p>
-              <h3 className="tl-title">Rekonstrukce s duší</h3>
-              <p className="tl-desc">
-                Kompletní rekonstrukce proměnila dům v&nbsp;rezidenci s&nbsp;jedinečným
-                charakterem. Ruční zpracování detailů, patinované dveře,
-                autorské povrchy stěn a&nbsp;pečlivě zvolené materiály.
-                Každá místnost dostala vlastní identitu.
-              </p>
+              <p className="tl-year">{tr.ch2num}</p>
+              <h3 className="tl-title">{tr.ch2title}</h3>
+              <p className="tl-desc">{tr.ch2desc}</p>
             </div>
             <div className="tl-image reveal-left">
               <div className="tl-image-grid">
-                <img src="/images/kuchyne-pred-rekonstrukci.webp" alt="Kuchyně před rekonstrukcí" loading="lazy" />
-                <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně po rekonstrukci" loading="lazy" />
+                <img src="/images/kuchyne-pred-rekonstrukci.webp" alt="Kitchen before renovation" loading="lazy" />
+                <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kitchen after renovation" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 3 - Kuchyně */}
+          {/* 3 */}
           <div className="tl-item">
             <div className="tl-content reveal-left">
-              <p className="tl-year">Kapitola III</p>
-              <h3 className="tl-title">Srdce domova</h3>
-              <p className="tl-desc">
-                Zakázková dubová kuchyně s&nbsp;žulovým
-                pultem a&nbsp;industriálním osvětlením se stala srdcem celého domu.
-                Otevřený prostor propojený s&nbsp;obývací částí vytváří
-                velkorysý společenský prostor pro rodinu i&nbsp;přátele.
-              </p>
+              <p className="tl-year">{tr.ch3num}</p>
+              <h3 className="tl-title">{tr.ch3title}</h3>
+              <p className="tl-desc">{tr.ch3desc}</p>
             </div>
             <div className="tl-image reveal-right">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kuchyně - celkový pohled" loading="lazy" />
-                <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kuchyně - detail" loading="lazy" />
+                <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kitchen overview" loading="lazy" />
+                <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kitchen detail" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 4 - Obývací prostor */}
+          {/* 4 */}
           <div className="tl-item">
             <div className="tl-content reveal-right">
-              <p className="tl-year">Kapitola IV</p>
-              <h3 className="tl-title">Prostor pro život</h3>
-              <p className="tl-desc">
-                Obývací část s přímým vstupem na zahradu
-                a&nbsp;velkoformátovými okny je zaplavená denním světlem.
-                Celek plynule propojuje kuchyni, jídelnu
-                i&nbsp;relaxační zónu do harmonického
-                a&nbsp;funkčního uspořádání.
-              </p>
+              <p className="tl-year">{tr.ch4num}</p>
+              <h3 className="tl-title">{tr.ch4title}</h3>
+              <p className="tl-desc">{tr.ch4desc}</p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací prostor" loading="lazy" />
+              <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Living room" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 5 - Ložnice */}
+          {/* 5 */}
           <div className="tl-item">
             <div className="tl-content reveal-left">
-              <p className="tl-year">Kapitola V</p>
-              <h3 className="tl-title">Soukromý svět</h3>
-              <p className="tl-desc">
-                Ložnice s dekorativní kamennou stěnou a&nbsp;tapetou
-                inspirovanou středomořím.
-                Každý pokoj je originál, kde se prolíná útulnost
-                s&nbsp;uměním, a&nbsp;kde se každé ráno probouzíte s&nbsp;výhledem do zeleně.
-              </p>
+              <p className="tl-year">{tr.ch5num}</p>
+              <h3 className="tl-title">{tr.ch5title}</h3>
+              <p className="tl-desc">{tr.ch5desc}</p>
             </div>
             <div className="tl-image reveal-right">
               <div className="tl-image-grid">
-                <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Hlavní ložnice" loading="lazy" />
-                <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - nástěnná malba" loading="lazy" />
+                <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Master bedroom" loading="lazy" />
+                <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Bedroom wall mural" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 6 - Technologie a zázemí */}
+          {/* 6 */}
           <div className="tl-item">
             <div className="tl-content reveal-left">
-              <p className="tl-year">Kapitola VI</p>
-              <h3 className="tl-title">Technologie a&nbsp;zázemí</h3>
-              <p className="tl-desc">
-                Za klidem tohoto místa stojí promyšlené technické řešení, které zajišťuje
-                komfort i&nbsp;dlouhodobou soběstačnost.
-                Tepelné čerpadlo Daikin s&nbsp;klimatizací udržuje příjemnou teplotu po celý rok.
-                Vlastní vrt o&nbsp;hloubce 90 metrů zajišťuje kvalitní měkkou vodu,
-                doplněnou o&nbsp;zásobník a&nbsp;filtraci. Odpadní vody jsou řešeny moderní
-                čističkou (ČOV) s&nbsp;možností dalšího využití.
-                Technologie byly instalovány v&nbsp;rámci rekonstrukce a&nbsp;jsou pravidelně servisovány.
-              </p>
+              <p className="tl-year">{tr.ch6num}</p>
+              <h3 className="tl-title">{tr.ch6title}</h3>
+              <p className="tl-desc">{tr.ch6desc}</p>
             </div>
             <div className="tl-image reveal-right">
-              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Tepelné čerpadlo Daikin" loading="lazy" />
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Daikin heat pump" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 7 - Víceúčelový prostor */}
+          {/* 7 */}
           <div className="tl-item">
             <div className="tl-content reveal-right">
-              <p className="tl-year">Kapitola VII</p>
-              <h3 className="tl-title">Víceúčelový prostor</h3>
-              <p className="tl-desc">
-                Velkorysých 77&nbsp;m², které se přizpůsobí tomu, jak chcete žít.
-                Nejen třeba garáž, ale i&nbsp;místo pro pohyb, odpočinek i&nbsp;každodenní
-                provoz — se saunou, zázemím pro cvičení, kuchyňkou i&nbsp;posezením.
-                Prostor, který může být zázemím domu, domácí posilovnou
-                i&nbsp;místem pro setkávání.
-              </p>
+              <p className="tl-year">{tr.ch7num}</p>
+              <h3 className="tl-title">{tr.ch7title}</h3>
+              <p className="tl-desc">{tr.ch7desc}</p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Víceúčelový prostor" loading="lazy" />
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Multi-purpose space" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
 
-          {/* 8 - Rezidence dnes */}
+          {/* 8 */}
           <div className="tl-item">
             <div className="tl-content reveal-left">
-              <p className="tl-year">Kapitola VIII</p>
-              <h3 className="tl-title">Rezidence dnes</h3>
-              <p className="tl-desc">
-                Dnes je Rezidence Pavlov ve fázi, kdy to nejnáročnější je za námi.
-                Zásadní rekonstrukce byla provedena s&nbsp;důrazem na kvalitu
-                a&nbsp;dlouhodobou hodnotu, takže budoucí majitel se už může soustředit
-                na to nejpříjemnější – dotvořit si prostor podle vlastních představ.
-              </p>
+              <p className="tl-year">{tr.ch8num}</p>
+              <h3 className="tl-title">{tr.ch8title}</h3>
+              <p className="tl-desc">{tr.ch8desc}</p>
             </div>
             <div className="tl-image reveal-right">
-              <img src="/images/zasilka/rezidence-dnes.webp" alt="Rezidence dnes - jarní pohled" loading="lazy" />
+              <img src="/images/zasilka/rezidence-dnes.webp" alt="Residence today - spring view" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
@@ -709,250 +821,216 @@ export default function Home() {
 
       {/* IMAGE BREAK */}
       <div className="image-break">
-        <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Rezidence Pavlov - zimní panorama" loading="lazy" />
+        <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Rezidence Pavlov - winter panorama" loading="lazy" />
         <div className="image-break-overlay">
           <div className="image-break-text reveal">
-            <p>Rezidence ve čtyřech ročních obdobích</p>
-            <h2>Výhled, který nikdy neomrzí</h2>
+            <p>{tr.imageBreakSub}</p>
+            <h2>{tr.imageBreakTitle}</h2>
           </div>
         </div>
       </div>
 
       {/* INTERIOR GALLERY */}
-      <section id="interior" className="rooms" onClick={e => { const t = e.target as HTMLElement; if (t.tagName === 'IMG') openLightbox((t as HTMLImageElement).src); }}>
+      <section id="interior" className="rooms" onClick={e => { const el = e.target as HTMLElement; if (el.tagName === 'IMG') openLightbox((el as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
-          <p className="section-label">Interiér</p>
-          <h2 className="section-title">Nahlédněte dovnitř</h2>
+          <p className="section-label">{tr.interiorLabel}</p>
+          <h2 className="section-title">{tr.interiorTitle}</h2>
           <div className="gold-line"></div>
         </div>
 
-        {/* Kuchyně */}
+        {/* Kitchen */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kuchyně s ostrovem" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Srdce domova</p>
-              <h3>Kuchyně</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6939-HDR.webp" alt="Kitchen with island" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r1sub}</p><h3>{tr.r1title}</h3></div>
           </div>
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kuchyně - modré skříňky" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kuchyně - americká lednička" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6964-HDR.webp" alt="Kuchyně - výhled na zahradu" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6969-HDR.webp" alt="Kuchyně - pracovní deska" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6944-HDR.webp" alt="Kitchen blue cabinets" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6959-HDR.webp" alt="Kitchen fridge" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6964-HDR.webp" alt="Kitchen garden view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6969-HDR.webp" alt="Kitchen countertop" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
         </div>
 
-        {/* Obývací pokoj */}
+        {/* Living room */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Obývací pokoj - open space" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Obývací pokoj - TV a okno" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6994-HDR.webp" alt="Obývací pokoj - třetí úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6999-HDR.webp" alt="Living room open space" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6984-HDR.webp" alt="Living room TV" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6994-HDR.webp" alt="Living room angle" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Obývací pokoj - sedačka a výhled" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Prostor pro život</p>
-              <h3>Obývací pokoj</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6989-HDR.webp" alt="Living room sofa" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r2sub}</p><h3>{tr.r2title}</h3></div>
           </div>
         </div>
 
-        {/* Chodby a vstupy */}
+        {/* Hallways */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Chodba" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Každý detail s&nbsp;péčí</p>
-              <h3>Chodby a&nbsp;vstupy</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6909-HDR.webp" alt="Hallway" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r3sub}</p><h3>{tr.r3title}</h3></div>
           </div>
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Vstupní hala" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6731-HDR.webp" alt="Chodba - druhý pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6736-HDR.webp" alt="Chodba - třetí pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6829-HDR.webp" alt="Chodba - průchod" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Chodba - modré dveře" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6924-HDR.webp" alt="Chodba - detail" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6934-HDR.webp" alt="Chodba - vstup" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6929-HDR.webp" alt="Entrance hall" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6731-HDR.webp" alt="Hallway second view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6736-HDR.webp" alt="Hallway third view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6829-HDR.webp" alt="Hallway passage" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6834-HDR.webp" alt="Blue door" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6924-HDR.webp" alt="Hallway detail" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6934-HDR.webp" alt="Hallway entrance" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
         </div>
 
-        {/* Hlavní ložnice */}
+        {/* Master bedroom */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Ložnice - Provence tapeta" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6741-HDR.webp" alt="Ložnice - druhý úhel" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6751-HDR.webp" alt="Ložnice - třetí úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6756-HDR.webp" alt="Bedroom Provence wallpaper" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6741-HDR.webp" alt="Bedroom second angle" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6751-HDR.webp" alt="Bedroom third angle" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Ložnice s kamennou stěnou" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Klid a&nbsp;soukromí</p>
-              <h3>Ložnice s&nbsp;příběhem</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6746-HDR.webp" alt="Bedroom stone wall" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r4sub}</p><h3>{tr.r4title}</h3></div>
           </div>
         </div>
 
-        {/* Hlavní koupelna */}
+        {/* Bathroom */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Hlavní koupelna" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Autorský design</p>
-              <h3>Koupelna</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6701-HDR.webp" alt="Main bathroom" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r5sub}</p><h3>{tr.r5title}</h3></div>
           </div>
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Koupelna - sprchový kout" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6711-HDR.webp" alt="Koupelna - druhý úhel" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6716-HDR.webp" alt="Koupelna - třetí úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6721-HDR.webp" alt="Bathroom shower" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6711-HDR.webp" alt="Bathroom second angle" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6716-HDR.webp" alt="Bathroom third angle" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
         </div>
 
-        {/* Pracovna */}
+        {/* Study */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6772-HDR.webp" alt="Pracovna - první pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6787-HDR.webp" alt="Pracovna - druhý pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6794-HDR.webp" alt="Pracovna - třetí pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6772-HDR.webp" alt="Study first view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6787-HDR.webp" alt="Study second view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6794-HDR.webp" alt="Study third view" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6780-HDR.webp" alt="Pracovna" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Místo pro myšlenky</p>
-              <h3>Pracovna</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6780-HDR.webp" alt="Study" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r6sub}</p><h3>{tr.r6title}</h3></div>
           </div>
         </div>
 
-        {/* Toaleta */}
+        {/* WC */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6914-HDR.webp" alt="Toaleta" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Funkční detail</p>
-              <h3>Toaleta</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6914-HDR.webp" alt="WC" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r7sub}</p><h3>{tr.r7title}</h3></div>
           </div>
-          <img src="/images/zasilka/PS1A6919-HDR.webp" alt="Toaleta - druhý pohled" loading="lazy" decoding="async" />
+          <img src="/images/zasilka/PS1A6919-HDR.webp" alt="WC second view" loading="lazy" decoding="async" />
         </div>
 
-        {/* Hostinský pokoj */}
+        {/* Guest room */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Hostinský pokoj" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6854-HDR.webp" alt="Hostinský pokoj - druhý úhel" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6859-HDR.webp" alt="Hostinský pokoj - třetí úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6849-HDR.webp" alt="Guest room" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6854-HDR.webp" alt="Guest room second angle" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6859-HDR.webp" alt="Guest room third angle" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6864-HDR.webp" alt="Hostinský pokoj" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Pro vzácné hosty</p>
-              <h3>Hostinský pokoj</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6864-HDR.webp" alt="Guest room" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r8sub}</p><h3>{tr.r8title}</h3></div>
           </div>
         </div>
 
-        {/* Hostinská koupelna */}
+        {/* Guest bathroom */}
         <div className="room-row reveal">
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6808-HDR.webp" alt="Hostinská koupelna" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Vlastní zázemí</p>
-              <h3>Hostinská koupelna</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6808-HDR.webp" alt="Guest bathroom" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r9sub}</p><h3>{tr.r9title}</h3></div>
           </div>
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6815-HDR.webp" alt="Hostinská koupelna - sprchový kout" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6822-HDR.webp" alt="Hostinská koupelna - druhý úhel" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6815-HDR.webp" alt="Guest bathroom shower" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6822-HDR.webp" alt="Guest bathroom second angle" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
         </div>
 
-        {/* Technické zázemí */}
+        {/* Utility room */}
         <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
-              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Kotelna - tepelné čerpadlo" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6884-HDR.webp" alt="Technické zázemí - druhý pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6889-HDR.webp" alt="Technické zázemí - třetí pohled" loading="lazy" decoding="async" />
-              <img src="/images/zasilka/PS1A6894-HDR.webp" alt="Technické zázemí - čtvrtý pohled" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Boiler room heat pump" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6884-HDR.webp" alt="Utility room second view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6889-HDR.webp" alt="Utility room third view" loading="lazy" decoding="async" />
+              <img src="/images/zasilka/PS1A6894-HDR.webp" alt="Utility room fourth view" loading="lazy" decoding="async" />
             </div>
-            <button className="room-scroll-btn room-scroll-prev" aria-label="Předchozí">&#8249;</button>
-            <button className="room-scroll-btn room-scroll-next" aria-label="Další">&#8250;</button>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
           </div>
           <div className="room-label">
-            <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Prádelna" loading="lazy" decoding="async" />
-            <div className="room-label-text">
-              <p>Moderní technologie</p>
-              <h3>Technická místnost</h3>
-            </div>
+            <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Laundry room" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r10sub}</p><h3>{tr.r10title}</h3></div>
           </div>
         </div>
       </section>
 
       {/* EXTERIOR */}
-      <section id="exterior" className="rooms" onClick={e => { const t = e.target as HTMLElement; if (t.tagName === 'IMG') openLightbox((t as HTMLImageElement).src); }}>
+      <section id="exterior" className="rooms" onClick={e => { const el = e.target as HTMLElement; if (el.tagName === 'IMG') openLightbox((el as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
-          <p className="section-label">Exteriér</p>
-          <h2 className="section-title">Hektar vlastního světa</h2>
+          <p className="section-label">{tr.exteriorLabel}</p>
+          <h2 className="section-title">{tr.exteriorTitle}</h2>
           <div className="gold-line"></div>
         </div>
         <div className="exterior-grid reveal">
-          <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp" alt="Jarní panorama" loading="lazy" />
-          <img src="/images/DJI_20260219124228_0023_D-HDR.webp" alt="Rezidence v zimě - ptačí pohled" loading="lazy" />
-          <img src="/images/DJI_20260219124342_0030_D-HDR.webp" alt="Pozemek v zimě" loading="lazy" />
-          <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Příjezdová cesta" loading="lazy" />
-          <img src="/images/DJI_20260219124424_0034_D-HDR.webp" alt="Panoramatický výhled" loading="lazy" />
-          <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Jarní západ slunce" loading="lazy" />
-          <img className="wide" src="/images/zasilka/DJI_20260305151720_0026_D.webp" alt="Rezidence v krajině" loading="lazy" style={{objectPosition: '60% 70%'}} />
+          <img className="wide" src="/images/zasilka/DJI_20260305151656_0025_D-HDR.webp" alt="Spring panorama" loading="lazy" />
+          <img src="/images/DJI_20260219124228_0023_D-HDR.webp" alt="Aerial winter view" loading="lazy" />
+          <img src="/images/DJI_20260219124342_0030_D-HDR.webp" alt="Property in winter" loading="lazy" />
+          <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Driveway" loading="lazy" />
+          <img src="/images/DJI_20260219124424_0034_D-HDR.webp" alt="Panoramic view" loading="lazy" />
+          <img src="/images/zasilka/DJI_20260305151440_0017_D-HDR.webp" alt="Spring sunset" loading="lazy" />
+          <img className="wide" src="/images/zasilka/DJI_20260305151720_0026_D.webp" alt="Residence in landscape" loading="lazy" style={{objectPosition: '60% 70%'}} />
         </div>
       </section>
 
       {/* LIFESTYLE */}
       <section className="lifestyle">
         <div className="reveal">
-          <p className="section-label">Epilog</p>
-          <h2 className="section-title">Domov pro váš příběh</h2>
+          <p className="section-label">{tr.lifestyleLabel}</p>
+          <h2 className="section-title">{tr.lifestyleTitle}</h2>
           <div className="gold-line"></div>
-          <p>
-            Rozhodnutí o koupi u výjimečných nemovitostí vzniká emocí,
-            ne tabulkou metrů čtverečních. Rezidence Pavlov čeká
-            na svého správného kupce — na další kapitolu svého příběhu.
-          </p>
+          <p>{tr.lifestyleP}</p>
         </div>
       </section>
 
@@ -960,10 +1038,10 @@ export default function Home() {
       <section id="contact" className="contact">
         <div className="contact-inner">
           <div className="contact-info reveal">
-            <p className="section-label">Kontakt</p>
-            <h2 className="section-title">Napište další kapitolu</h2>
+            <p className="section-label">{tr.contactLabel}</p>
+            <h2 className="section-title">{tr.contactTitle}</h2>
             <div className="gold-line"></div>
-            <h3>Exkluzivní zastoupení</h3>
+            <h3>{tr.contactExclusive}</h3>
             <p className="contact-name">Petr Dadej</p>
             <div className="contact-detail">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -988,23 +1066,23 @@ export default function Home() {
             </div>
 
             <div className="contact-form">
-              <h3>Nezávazná poptávka</h3>
+              <h3>{tr.contactInquiry}</h3>
               <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <input type="text" name="name" placeholder="Jméno a příjmení" required />
+                    <input type="text" name="name" placeholder={tr.formName} required />
                   </div>
                   <div className="form-group">
-                    <input type="tel" name="phone" placeholder="Telefon" />
+                    <input type="tel" name="phone" placeholder={tr.formPhone} />
                   </div>
                 </div>
                 <div className="form-group">
                   <input type="email" name="email" placeholder="E-mail" required />
                 </div>
                 <div className="form-group">
-                  <textarea name="message" placeholder="Vaše zpráva..."></textarea>
+                  <textarea name="message" placeholder={tr.formMessage}></textarea>
                 </div>
-                <button type="submit" className="form-submit" ref={formBtnRef}>Odeslat zprávu</button>
+                <button type="submit" className="form-submit" ref={formBtnRef}>{tr.formSubmit}</button>
                 <div className="form-message" ref={formMsgRef}></div>
               </form>
             </div>
@@ -1020,7 +1098,7 @@ export default function Home() {
         <div className="footer-logo">
           <img src="/images/ANAGRAM_PD_barva_final.png" alt="Petr Dadej" />
         </div>
-        <p>&copy; 2026 Petr Dadej. Všechna práva vyhrazena.</p>
+        <p>&copy; 2026 Petr Dadej. {tr.footer}</p>
       </footer>
 
       {/* DOWNLOAD OVERLAY */}
@@ -1028,97 +1106,39 @@ export default function Home() {
 
       {/* DOWNLOAD PANEL */}
       <div id="dlPanel" className="dl-panel">
-        <button id="dlClose" className="dl-close" aria-label="Zavřít">×</button>
-        <p className="section-label">Dokumentace</p>
-        <h3 className="dl-panel-title">Ke stažení</h3>
+        <button id="dlClose" className="dl-close" aria-label={tr.close}>×</button>
+        <p className="section-label">{tr.dlPanelLabel}</p>
+        <h3 className="dl-panel-title">{tr.dlPanelTitle}</h3>
         <div className="gold-line"></div>
-        <p>Technická dokumentace, půdorysy a podklady k nemovitosti.</p>
+        <p>{tr.dlPanelDesc}</p>
         <ul className="dl-list">
-          <li>
-            <a href="/documents/pudorys.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Půdorys
-            </a>
-          </li>
-          <li>
-            <a href="/documents/rez.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Řez
-            </a>
-          </li>
-          <li>
-            <a href="/documents/pohledy.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Pohledy
-            </a>
-          </li>
-          <li>
-            <a href="/documents/zaklady.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Základy
-            </a>
-          </li>
-          <li>
-            <a href="/documents/krov-vaznikovy.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Krov vazníkový
-            </a>
-          </li>
-          <li>
-            <a href="/documents/situacni-vykres.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Situační výkres
-            </a>
-          </li>
-          <li>
-            <a href="/documents/zamereni-pozemku.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Zaměření pozemku
-            </a>
-          </li>
-          <li>
-            <a href="/documents/rozbor-vody.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Rozbor vody z vlastní studny
-            </a>
-          </li>
-          <li>
-            <a href="/documents/penb.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              PENB
-            </a>
-          </li>
-          <li>
-            <a href="/documents/souhrna-technicka-zprava.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Souhrnná technická zpráva
-            </a>
-          </li>
-          <li>
-            <a href="/documents/dokumentace-stavby.pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-              Dokumentace skutečného provedení stavby
-            </a>
-          </li>
+          {docFiles.map((href, i) => (
+            <li key={href}>
+              <a href={href} download>
+                <DownloadIcon />
+                {tr.docs[i]}
+              </a>
+            </li>
+          ))}
         </ul>
         <a href="/documents/rezidence-pavlov-dokumenty.zip" download className="dl-zip-btn">
-          Stáhnout vše (ZIP)
+          {tr.dlZipBtn}
         </a>
       </div>
 
       {/* DOWNLOAD GATE MODAL */}
       <div id="dlGateOverlay" className="dl-gate-overlay">
         <div id="dlGateModal" className="dl-gate-modal">
-          <button id="dlGateClose" className="dl-close" aria-label="Zavřít">×</button>
-          <p className="section-label">Dokumenty ke stažení</p>
-          <h3 className="dl-panel-title">Zadejte e-mail</h3>
+          <button id="dlGateClose" className="dl-close" aria-label={tr.close}>×</button>
+          <p className="section-label">{tr.dlGateLabel}</p>
+          <h3 className="dl-panel-title">{tr.dlGateTitle}</h3>
           <div className="gold-line"></div>
-          <p>Pošleme vám potvrzení a budeme vás informovat o&nbsp;aktualizacích dokumentace.</p>
+          <p>{tr.dlGateDesc}</p>
           <form id="dlGateForm">
             <div className="form-group">
-              <input id="dlGateEmail" type="email" placeholder="Váš e-mail" required />
+              <input id="dlGateEmail" type="email" placeholder={tr.dlGateEmailPlaceholder} required />
             </div>
-            <button id="dlGateBtn" type="submit" className="form-submit">Stáhnout</button>
+            <button id="dlGateBtn" type="submit" className="form-submit">{tr.dlGateBtn}</button>
             <div id="dlGateMsg" className="form-message"></div>
           </form>
         </div>
@@ -1126,19 +1146,19 @@ export default function Home() {
 
       {/* YOUTUBE WIDGET — malý roh */}
       <div className="yt-widget">
-        <button className="yt-thumb" onClick={() => setYtExpanded(true)} aria-label="Přehrát video o rezidenci">
+        <button className="yt-thumb" onClick={() => setYtExpanded(true)} aria-label={tr.ytLabel}>
           <img src="https://img.youtube.com/vi/7ebzI_obhDw/mqdefault.jpg" alt="Rezidence Pavlov – video" />
           <span className="yt-play-icon">
             <svg viewBox="0 0 68 48"><path d="M66.52 7.74C65.7 4.54 63.2 2.04 60 1.22 54.76 0 34 0 34 0S13.24 0 8 1.22C4.8 2.04 2.3 4.54 1.48 7.74 0 13 0 24 0 24s0 11 1.48 16.26c.82 3.2 3.32 5.7 6.52 6.52C13.24 48 34 48 34 48s20.76 0 26-1.22c3.2-.82 5.7-3.32 6.52-6.52C68 35 68 24 68 24s0-11-1.48-16.26z" fill="#ff0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
           </span>
-          <span className="yt-label">Prohlídka rezidence</span>
+          <span className="yt-label">{tr.ytLabel}</span>
         </button>
       </div>
 
-      {/* YOUTUBE OVERLAY — velký střed */}
+      {/* YOUTUBE OVERLAY */}
       {ytExpanded && (
         <div className="yt-expanded" onClick={() => setYtExpanded(false)}>
-          <button className="yt-close" onClick={() => setYtExpanded(false)} aria-label="Zavřít video">×</button>
+          <button className="yt-close" onClick={() => setYtExpanded(false)} aria-label={tr.ytClose}>×</button>
           <iframe
             src="https://www.youtube.com/embed/7ebzI_obhDw?autoplay=1&rel=0"
             title="Rezidence Pavlov"
@@ -1152,24 +1172,16 @@ export default function Home() {
       {/* CURSOR TRAIL */}
       <canvas
         ref={canvasRef}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          zIndex: 9999,
-        }}
+        style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 9999 }}
       />
 
       {/* LIGHTBOX */}
       {lightboxIdx !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
-          <button className="lightbox-close" onClick={closeLightbox} aria-label="Zavřít">&#x2715;</button>
-          <button className="lightbox-prev" onClick={e => { e.stopPropagation(); lightboxPrev(); }} aria-label="Předchozí">&#8249;</button>
+          <button className="lightbox-close" onClick={closeLightbox} aria-label={tr.close}>&#x2715;</button>
+          <button className="lightbox-prev" onClick={e => { e.stopPropagation(); lightboxPrev(); }} aria-label={tr.prev}>&#8249;</button>
           <img src={galleryRef.current[lightboxIdx]} alt="" onClick={e => e.stopPropagation()} />
-          <button className="lightbox-next" onClick={e => { e.stopPropagation(); lightboxNext(); }} aria-label="Další">&#8250;</button>
+          <button className="lightbox-next" onClick={e => { e.stopPropagation(); lightboxNext(); }} aria-label={tr.next}>&#8250;</button>
         </div>
       )}
     </>
