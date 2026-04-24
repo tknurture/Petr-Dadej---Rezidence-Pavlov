@@ -799,7 +799,7 @@ export default function Home() {
               <p className="tl-desc">{tr.ch7desc}</p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Multi-purpose space" loading="lazy" />
+              <img src="/images/viceucelovy-prostor.jpg" alt="Multi-purpose space" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
           </div>
