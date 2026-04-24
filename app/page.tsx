@@ -668,10 +668,29 @@ export default function Home() {
             <div className="tl-dot"></div>
           </div>
 
-          {/* 7 - Rezidence dnes */}
+          {/* 7 - Víceúčelový prostor */}
           <div className="tl-item">
             <div className="tl-content reveal-right">
               <p className="tl-year">Kapitola VII</p>
+              <h3 className="tl-title">Víceúčelový prostor</h3>
+              <p className="tl-desc">
+                Velkorysých 77&nbsp;m², které se přizpůsobí tomu, jak chcete žít.
+                Nejen třeba garáž, ale i&nbsp;místo pro pohyb, odpočinek i&nbsp;každodenní
+                provoz — se saunou, zázemím pro cvičení, kuchyňkou i&nbsp;posezením.
+                Prostor, který může být zázemím domu, domácí posilovnou
+                i&nbsp;místem pro setkávání.
+              </p>
+            </div>
+            <div className="tl-image reveal-left">
+              <img src="/images/zasilka/PS1A6869-HDR.webp" alt="Víceúčelový prostor" loading="lazy" />
+            </div>
+            <div className="tl-dot"></div>
+          </div>
+
+          {/* 8 - Rezidence dnes */}
+          <div className="tl-item">
+            <div className="tl-content reveal-left">
+              <p className="tl-year">Kapitola VIII</p>
               <h3 className="tl-title">Rezidence dnes</h3>
               <p className="tl-desc">
                 Dnes je Rezidence Pavlov ve fázi, kdy to nejnáročnější je za námi.
@@ -680,7 +699,7 @@ export default function Home() {
                 na to nejpříjemnější – dotvořit si prostor podle vlastních představ.
               </p>
             </div>
-            <div className="tl-image reveal-left">
+            <div className="tl-image reveal-right">
               <img src="/images/zasilka/rezidence-dnes.webp" alt="Rezidence dnes - jarní pohled" loading="lazy" />
             </div>
             <div className="tl-dot"></div>
