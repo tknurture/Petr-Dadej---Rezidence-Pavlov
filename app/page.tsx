@@ -996,7 +996,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="room-row reveal">
+        <div className="room-row reverse reveal">
           <div className="room-scroll">
             <div className="room-scroll-track">
               <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
