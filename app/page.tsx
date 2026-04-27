@@ -54,6 +54,7 @@ const translations = {
     r8sub: 'Pro vzácné hosty', r8title: 'Hostinský pokoj',
     r9sub: 'Vlastní zázemí', r9title: 'Hostinská koupelna',
     r10sub: 'Moderní technologie', r10title: 'Technická místnost',
+    r11sub: 'Prostor bez hranic', r11title: 'Víceúčelová místnost',
     prev: 'Předchozí', next: 'Další',
     exteriorLabel: 'Exteriér',
     exteriorTitle: 'Hektar vlastního světa',
@@ -140,6 +141,7 @@ const translations = {
     r8sub: 'For special guests', r8title: 'Guest room',
     r9sub: 'Private facilities', r9title: 'Guest bathroom',
     r10sub: 'Modern technology', r10title: 'Utility room',
+    r11sub: 'Space without limits', r11title: 'Multi-Purpose Room',
     prev: 'Previous', next: 'Next',
     exteriorLabel: 'Exterior',
     exteriorTitle: 'A hectare of your own world',
@@ -991,6 +993,21 @@ export default function Home() {
           <div className="room-label">
             <img src="/images/zasilka/PS1A6874-HDR.webp" alt="Laundry room" loading="lazy" decoding="async" />
             <div className="room-label-text"><p>{tr.r10sub}</p><h3>{tr.r10title}</h3></div>
+          </div>
+        </div>
+
+        <div className="room-row reveal">
+          <div className="room-scroll">
+            <div className="room-scroll-track">
+              <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
+              <img src="/images/viceucelova-2.webp" alt="Víceúčelová místnost druhý pohled" loading="lazy" decoding="async" />
+            </div>
+            <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
+            <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
+          </div>
+          <div className="room-label">
+            <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r11sub}</p><h3>{tr.r11title}</h3></div>
           </div>
         </div>
       </section>
