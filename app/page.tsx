@@ -996,7 +996,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="room-row reverse reveal">
+        <div className="room-row reveal">
+          <div className="room-label">
+            <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
+            <div className="room-label-text"><p>{tr.r11sub}</p><h3>{tr.r11title}</h3></div>
+          </div>
           <div className="room-scroll">
             <div className="room-scroll-track">
               <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
@@ -1004,10 +1008,6 @@ export default function Home() {
             </div>
             <button className="room-scroll-btn room-scroll-prev" aria-label={tr.prev}>&#8249;</button>
             <button className="room-scroll-btn room-scroll-next" aria-label={tr.next}>&#8250;</button>
-          </div>
-          <div className="room-label">
-            <img src="/images/viceucelova-1.webp" alt="Víceúčelová místnost" loading="lazy" decoding="async" />
-            <div className="room-label-text"><p>{tr.r11sub}</p><h3>{tr.r11title}</h3></div>
           </div>
         </div>
       </section>
