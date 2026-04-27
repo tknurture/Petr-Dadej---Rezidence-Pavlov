@@ -819,18 +819,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* IMAGE BREAK */}
-      <div className="image-break">
-        <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Rezidence Pavlov - winter panorama" loading="lazy" />
-        <div className="image-break-overlay">
-          <div className="image-break-text reveal">
-            <p>{tr.imageBreakSub}</p>
-            <h2>{tr.imageBreakTitle}</h2>
-          </div>
-        </div>
-      </div>
-
-      {/* INTERIOR GALLERY */}
+{/* INTERIOR GALLERY */}
       <section id="interior" className="rooms" onClick={e => { const el = e.target as HTMLElement; if (el.tagName === 'IMG') openLightbox((el as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
           <p className="section-label">{tr.interiorLabel}</p>
