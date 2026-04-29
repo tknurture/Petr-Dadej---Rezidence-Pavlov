@@ -156,7 +156,7 @@ section { padding: 120px 48px; }
 .image-break-overlay { position: absolute; inset: 0; background: rgba(27,42,74,0.7); display: flex; align-items: center; justify-content: center; }
 .image-break-text { text-align: center; color: var(--white); padding: 0 24px; }
 .image-break-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 300; text-shadow: 0 4px 30px rgba(0,0,0,0.6); margin-bottom: 8px; }
-.image-break-text p { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+.image-break-text p { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 300; font-style: italic; letter-spacing: 2px; text-transform: none; color: var(--gold); text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 
 /* ── ROOMS GALLERY ── */
 .rooms { background: var(--white); }
