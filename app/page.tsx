@@ -801,7 +801,10 @@ export default function Home() {
               <p className="tl-desc">{tr.ch7desc}</p>
             </div>
             <div className="tl-image reveal-left">
-              <img src="/images/viceucelovy-prostor.webp" alt="Multi-purpose space" loading="lazy" />
+              <div className="tl-image-grid">
+                <img src="/images/viceucelovy-prostor.webp" alt="Multi-purpose space" loading="lazy" />
+                <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Exterior garage view" loading="lazy" />
+              </div>
             </div>
             <div className="tl-dot"></div>
           </div>
@@ -821,7 +824,17 @@ export default function Home() {
         </div>
       </section>
 
-{/* INTERIOR GALLERY */}
+{/* IMAGE BREAK */}
+      <div className="image-break">
+        <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Rezidence Pavlov ve čtyřech ročních obdobích" loading="lazy" />
+        <div className="image-break-overlay">
+          <div className="image-break-text">
+            <p>{tr.imageBreakSub}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* INTERIOR GALLERY */}
       <section id="interior" className="rooms" onClick={e => { const el = e.target as HTMLElement; if (el.tagName === 'IMG') openLightbox((el as HTMLImageElement).src); }}>
         <div className="rooms-header reveal">
           <p className="section-label">{tr.interiorLabel}</p>
