@@ -803,7 +803,7 @@ export default function Home() {
             <div className="tl-image reveal-left">
               <div className="tl-image-grid">
                 <img src="/images/viceucelovy-prostor.webp" alt="Multi-purpose space" loading="lazy" />
-                <img src="/images/DJI_20260219124457_0037_D-HDR.webp" alt="Exterior garage view" loading="lazy" />
+                <img src="/images/DJI_20260219124228_0023_D-HDR.webp" alt="Exterior garage view" loading="lazy" />
               </div>
             </div>
             <div className="tl-dot"></div>
@@ -829,7 +829,7 @@ export default function Home() {
         <img src="/images/DJI_20260219124532_0040_D-HDR.webp" alt="Rezidence Pavlov ve čtyřech ročních obdobích" loading="lazy" />
         <div className="image-break-overlay">
           <div className="image-break-text">
-            <p>{tr.imageBreakSub}</p>
+            <p>{tr.imageBreakTitle}</p>
           </div>
         </div>
       </div>
